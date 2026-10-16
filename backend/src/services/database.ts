@@ -1,4 +1,5 @@
 import pg from "pg";
+import { config } from "../config.js";
 
 export type Source = { titulo: string; organismo: string; url: string };
 
@@ -20,7 +21,7 @@ export type Disease = {
   publicada: boolean;
 };
 
-const databaseUrl = process.env.DATABASE_URL;
+const databaseUrl = config.databaseUrl;
 const pool = databaseUrl
   ? new pg.Pool({ connectionString: databaseUrl, ssl: { rejectUnauthorized: false }, max: 5 })
   : null;

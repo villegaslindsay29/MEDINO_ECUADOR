@@ -1,3 +1,4 @@
+import { config } from "../config.js";
 import { findDiseaseById, findDiseaseByName, listDiseases, upsertDisease, type Disease } from "./database.js";
 
 type ChatMessage = { role: "user" | "assistant"; content: string };
@@ -182,9 +183,9 @@ function isDiscoveryIntent(message: string) {
 }
 
 async function getGroundedResearch(message: string, selectedDisease: SelectedDisease | null) {
-  const apiKey = process.env.GEMINI_API_KEY;
+  const apiKey = config.geminiApiKey;
   if (!apiKey) return "";
-  const model = process.env.GEMINI_SEARCH_MODEL || process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
+  const model = process.env.GEMINI_SEARCH_MODEL || config.geminiModel;
   const topic = selectedDisease
     ? `${selectedDisease.nombre}, categoría ${selectedDisease.categoria}`
     : message;
@@ -226,8 +227,8 @@ export async function askGemini(
   selectedDisease: SelectedDisease | null = null,
   symptoms: string[] = [],
 ): Promise<AlbaResponse> {
-  const apiKey = process.env.GEMINI_API_KEY;
-  const model = process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
+  const apiKey = config.geminiApiKey;
+  const model = config.geminiModel;
   if (!apiKey) throw new Error("GEMINI_API_KEY_NOT_CONFIGURED");
 
   let allDiseases: Disease[] = [];

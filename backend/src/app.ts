@@ -36,7 +36,7 @@ app.use(
 app.get("/api/health", async (_req, res) => {
   res.json({
     status: "ok",
-    geminiConfigured: Boolean(process.env.GEMINI_API_KEY),
+    geminiConfigured: Boolean(config.geminiApiKey),
     databaseReady: await databaseIsReady(),
     adminConfigured: Boolean(config.adminEmail),
     supabaseConfigured: Boolean(config.supabaseUrl && config.supabasePublishableKey),
