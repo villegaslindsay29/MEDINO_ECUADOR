@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conversa con ALBA, el asistente de salud de MedInfo Ecuador.">
+  <title>ALBA | MedInfo Ecuador</title>
+  <link rel="icon" href="assets/medinfo-logo.png" type="image/png">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+  <script src="js/common.js" defer></script>
+  <script src="js/asistente.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Ir al contenido</a>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Navegación principal">
+      <a class="brand" href="index.html" aria-label="MedInfo Ecuador, inicio"><img class="brand-symbol" src="assets/medinfo-logo.png" alt=""><span class="brand-wordmark"><strong>MedInfo</strong> Ecuador</span></a>
+      <button class="menu-toggle" type="button" data-menu-toggle aria-label="Abrir menú" aria-expanded="false"><i class="ph ph-list"></i></button>
+      <div class="nav-links" data-nav-links><a class="nav-link" href="index.html">Inicio</a><a class="nav-link" href="enfermedades.html">Enfermedades</a><a class="nav-link" href="mapa.html">Mapa</a><a class="nav-link" href="admin.html">Administración</a><a class="nav-link cta active" href="asistente.html">Consultar ALBA</a></div>
+    </nav>
+  </header>
+
+  <main class="assistant-page" id="contenido">
+    <div class="container assistant-stage">
+      <section class="chat-shell" aria-label="Conversación con el asistente">
+        <header class="chat-header">
+          <h1>ALBA</h1>
+          <span class="sr-only" id="assistant-status" aria-live="polite">Disponible</span>
+          <button class="clear-chat" id="clear-chat" type="button" aria-label="Iniciar una conversación nueva"><i class="ph ph-note-pencil" aria-hidden="true"></i><span>Nueva conversación</span></button>
+        </header>
+        <div class="chat-messages" id="chat-messages" role="log" aria-label="Conversación con ALBA" aria-live="polite" aria-relevant="additions" tabindex="0">
+          <div class="chat-empty" aria-hidden="true"><span class="assistant-avatar"><i class="ph ph-sparkle" aria-hidden="true"></i></span><h2>¿En qué puedo ayudarte?</h2></div>
+        </div>
+        <form class="chat-form" id="chat-form">
+          <input id="age-range" type="hidden" value="no-indicar">
+          <div class="composer"><label class="sr-only" for="message-input">Escribe tu consulta</label><textarea class="text-area" id="message-input" maxlength="1000" rows="1" placeholder="Escribe un mensaje para ALBA" required></textarea><button class="send-button" id="send-button" type="submit" aria-label="Enviar mensaje"><i class="ph ph-arrow-up" aria-hidden="true"></i></button></div>
+        </form>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

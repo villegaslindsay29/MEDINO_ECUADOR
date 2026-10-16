@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MedInfo Ecuador ofrece información educativa sobre enfermedades frecuentes y orientación responsable con inteligencia artificial.">
+  <title>MedInfo Ecuador | Información de salud</title>
+  <link rel="icon" href="assets/medinfo-logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+  <script src="js/common.js" defer></script>
+  <script src="js/home.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Ir al contenido</a>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Navegación principal">
+      <a class="brand" href="index.html" aria-label="MedInfo Ecuador, inicio"><img class="brand-symbol" src="assets/medinfo-logo.png" alt=""><span class="brand-wordmark"><strong>MedInfo</strong> Ecuador</span></a>
+      <button class="menu-toggle" type="button" data-menu-toggle aria-label="Abrir menú" aria-expanded="false"><i class="ph ph-list" aria-hidden="true"></i></button>
+      <div class="nav-links" data-nav-links>
+        <a class="nav-link active" href="index.html">Inicio</a>
+        <a class="nav-link" href="enfermedades.html">Enfermedades</a>
+        <a class="nav-link" href="mapa.html">Mapa</a>
+        <a class="nav-link" href="admin.html">Administración</a>
+        <a class="nav-link cta" href="asistente.html">Consultar ALBA</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Información educativa para Ecuador</p>
+          <h1>Conocer también es <span>cuidarse.</span></h1>
+          <p class="hero-copy">Consulta enfermedades frecuentes y recibe orientación responsable sobre tus síntomas, sin reemplazar la atención médica.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="asistente.html">Hablar con ALBA <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+            <a class="button button-secondary" href="enfermedades.html">Explorar enfermedades</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="Profesional de salud atendiendo a una paciente">
+          <img class="hero-photo" src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1100&q=85" alt="Profesional de salud conversando con una paciente" width="1100" height="1300">
+          <div class="visual-stamp"><div><strong>EC</strong><span>Enfoque local</span></div></div>
+          <aside class="visual-note">
+            <div class="visual-note-top"><span class="pulse"></span> Orientación responsable</div>
+            <p>La información ayuda a decidir el siguiente paso, pero no sustituye un diagnóstico profesional.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label="Principios de MedInfo Ecuador">
+      <div class="container trust-grid">
+        <div class="trust-item"><strong>Una herramienta educativa</strong><span>Diseñada para comprender, prevenir y actuar.</span></div>
+        <div class="trust-item"><i class="ph ph-shield-check" aria-hidden="true"></i><strong>Fuentes confiables</strong><span>MSP, OPS y OMS</span></div>
+        <div class="trust-item"><i class="ph ph-map-pin" aria-hidden="true"></i><strong>Contexto ecuatoriano</strong><span>Riesgos y prevención local</span></div>
+        <div class="trust-item"><i class="ph ph-device-mobile" aria-hidden="true"></i><strong>Acceso sencillo</strong><span>Adaptado a cada dispositivo</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title reveal">Información clara para tomar mejores decisiones.</h2>
+          <p class="section-copy reveal">MedInfo Ecuador organiza contenidos de salud y ofrece una ruta sencilla desde la consulta inicial hasta las señales que requieren atención.</p>
+        <div class="feature-grid">
+          <article class="feature-main reveal">
+            <i class="ph ph-chat-centered-dots" aria-hidden="true"></i>
+            <h3>Describe lo que sientes con tus propias palabras.</h3>
+            <p>El asistente usa Gemini para ofrecer orientación general, identificar señales de alerta y sugerir el siguiente paso.</p>
+            <a class="button button-secondary" href="asistente.html">Iniciar conversación</a>
+          </article>
+          <div class="feature-stack">
+            <article class="feature-card tinted reveal">
+              <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+              <div><h3>Búsqueda directa</h3><p>Filtra enfermedades por nombre, síntoma o categoría sin recorrer información innecesaria.</p></div>
+            </article>
+            <article class="feature-card reveal">
+              <i class="ph ph-warning-circle" aria-hidden="true"></i>
+              <div><h3>Alertas visibles</h3><p>Reconoce situaciones en las que es importante buscar atención médica inmediata.</p></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section disease-preview">
+      <div class="container">
+        <div class="section-heading-row">
+          <div><h2 class="section-title reveal">Enfermedades frecuentes en Ecuador.</h2><p class="section-copy reveal">Una selección inicial para aprender síntomas, prevención y señales de alerta.</p></div>
+          <a class="button button-secondary" href="enfermedades.html">Ver catálogo completo</a>
+        </div>
+        <div class="disease-grid" id="home-disease-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section map-intro">
+      <div class="container map-intro-grid">
+        <div class="map-intro-visual reveal">
+          <img src="https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/ECU/ADM1/geoBoundaries-ECU-ADM1-PREVIEW.png" alt="Mapa de las 24 provincias del Ecuador" width="900" height="700">
+          <span class="map-intro-label"><i class="ph ph-map-pin"></i> 24 provincias conectadas</span>
+        </div>
+        <div class="reveal"><h2 class="section-title">La salud también tiene territorio.</h2><p class="section-copy">Explora las zonas de referencia asociadas a cada enfermedad y descubre información preventiva provincia por provincia.</p><a class="button button-primary" href="mapa.html" style="margin-top:28px">Abrir mapa interactivo <i class="ph ph-arrow-right"></i></a></div>
+      </div>
+    </section>
+
+    <section class="section orientation">
+      <div class="container orientation-grid">
+        <div class="reveal">
+          <h2 class="section-title">Orientación que empieza escuchándote.</h2>
+          <p class="section-copy">Indica tu rango de edad, explica tus síntomas y recibe una respuesta prudente en lenguaje sencillo.</p>
+          <div class="hero-actions" style="margin-top: 28px"><a class="button button-primary" href="asistente.html">Hablar con ALBA</a><a class="button button-secondary" href="mapa.html">Explorar mapa</a></div>
+        </div>
+        <div class="chat-preview reveal" aria-hidden="true">
+          <div class="chat-mini-head"><span class="assistant-avatar"><i class="ph ph-sparkle"></i></span><div><strong>ALBA</strong><span>Asistente de orientación</span></div></div>
+          <div class="mini-message">Hola. Cuéntame qué síntomas presentas y desde cuándo los tienes.</div>
+          <div class="mini-message user">Tengo fiebre y dolor muscular desde ayer.</div>
+          <div class="mini-message">Gracias. ¿Además tienes dificultad para respirar, sangrado o dolor abdominal intenso?</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="fuentes">
+      <div class="container source-layout">
+        <div><p class="eyebrow">Transparencia</p><h2 class="section-title reveal">Fuentes que puedes verificar.</h2><p class="section-copy reveal">La educación en salud debe indicar de dónde proviene la información y cuándo necesita revisión.</p></div>
+        <div class="source-list reveal">
+          <a class="source-item" href="https://www.salud.gob.ec/" target="_blank" rel="noopener"><span class="source-number">01</span><div><strong>Ministerio de Salud Pública</strong><span>Información sanitaria oficial de Ecuador</span></div><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+          <a class="source-item" href="https://www.paho.org/es" target="_blank" rel="noopener"><span class="source-number">02</span><div><strong>Organización Panamericana de la Salud</strong><span>Información regional y prevención</span></div><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+          <a class="source-item" href="https://www.who.int/es" target="_blank" rel="noopener"><span class="source-number">03</span><div><strong>Organización Mundial de la Salud</strong><span>Guías y contenidos internacionales</span></div><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div><a class="brand" href="index.html" aria-label="MedInfo Ecuador, inicio"><img class="brand-symbol" src="assets/medinfo-logo.png" alt=""><span class="brand-wordmark"><strong>MedInfo</strong> Ecuador</span></a><p class="footer-about">Plataforma educativa sobre enfermedades frecuentes en Ecuador. No reemplaza la consulta con profesionales de salud.</p></div>
+        <div class="footer-col"><h3>Explorar</h3><a href="enfermedades.html">Enfermedades</a><a href="mapa.html">Mapa</a><a href="asistente.html">ALBA</a><a href="#fuentes">Fuentes</a></div>
+        <div class="footer-col"><h3>Importante</h3><a href="tel:911">Emergencias: 911</a><a href="admin.html">Administración</a></div>
+      </div>
+      <div class="footer-bottom"><span>© <span data-year></span> MedInfo Ecuador. Proyecto educativo.</span><span>Ante una emergencia, llama al ECU 911.</span></div>
+    </div>
+  </footer>
+</body>
+</html>

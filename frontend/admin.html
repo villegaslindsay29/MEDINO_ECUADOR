@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Panel de administración de contenidos de MedInfo Ecuador.">
+  <title>Administración | MedInfo Ecuador</title>
+  <link rel="icon" href="assets/medinfo-logo.png" type="image/png">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+  <script src="js/common.js" defer></script>
+  <script src="js/admin.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Ir al contenido</a>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Navegación principal">
+      <a class="brand" href="index.html" aria-label="MedInfo Ecuador, inicio"><img class="brand-symbol" src="assets/medinfo-logo.png" alt=""><span class="brand-wordmark"><strong>MedInfo</strong> Ecuador</span></a>
+      <button class="menu-toggle" type="button" data-menu-toggle aria-label="Abrir menú" aria-expanded="false"><i class="ph ph-list"></i></button>
+      <div class="nav-links" data-nav-links><a class="nav-link" href="index.html">Inicio</a><a class="nav-link" href="enfermedades.html">Enfermedades</a><a class="nav-link" href="mapa.html">Mapa</a><a class="nav-link active" href="admin.html">Administración</a><a class="nav-link cta" href="asistente.html">Consultar ALBA</a></div>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section class="admin-hero">
+      <div class="container">
+        <div class="admin-hero-row"><div><p class="eyebrow">Gestión de contenidos</p><h1>Panel editorial.</h1></div><span class="prototype-badge"><i class="ph ph-database"></i> Conectado a Supabase</span></div>
+        <div class="admin-stats">
+          <article class="stat"><span>Contenidos visibles</span><strong id="visible-count">0</strong></article>
+          <article class="stat"><span>Categorías</span><strong id="category-count">0</strong></article>
+          <article class="stat"><span>Generadas por ALBA</span><strong id="change-count">0</strong></article>
+        </div>
+        <section class="admin-panel">
+          <header class="panel-head"><div><h2>Enfermedades registradas</h2><span class="muted">Las fichas pendientes de ALBA se muestran públicamente con un aviso hasta su revisión.</span></div><div class="panel-actions"><button class="button button-secondary button-small" id="logout" type="button"><i class="ph ph-sign-out"></i> Salir</button><button class="button button-primary button-small" id="new-content" type="button"><i class="ph ph-plus"></i> Nueva enfermedad</button></div></header>
+          <div class="admin-list" id="admin-list" aria-live="polite"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="editor-modal" role="dialog" aria-modal="true" aria-labelledby="editor-title">
+    <article class="modal">
+      <button class="modal-close" type="button" aria-label="Cerrar editor"><i class="ph ph-x"></i></button>
+      <h2 id="editor-title">Nueva enfermedad</h2>
+      <p class="modal-summary">Completa información educativa breve y verificable.</p>
+      <form class="admin-form" id="content-form">
+        <input type="hidden" id="content-id">
+        <div class="form-group"><label for="content-name">Nombre de la enfermedad</label><input class="text-input" id="content-name" maxlength="80" required></div>
+        <div class="form-group"><label for="content-category">Categoría</label><input class="text-input" id="content-category" maxlength="60" placeholder="Ejemplo: Respiratoria"><small>Opcional. Si lo dejas vacío se usa "General".</small></div>
+        <div class="form-group"><label for="content-specialist">Profesional de referencia</label><input class="text-input" id="content-specialist" maxlength="100" placeholder="Ejemplo: Infectología o Medicina general"><small>Opcional. Indica quién puede valorar esta información; no representa una derivación.</small></div>
+        <div class="form-group"><label for="content-zone">Zona</label><input class="text-input" id="content-zone" maxlength="80" placeholder="Ejemplo: Todo el país"><small>Opcional. Si lo dejas vacío se usa "Todo el país".</small></div>
+        <div class="form-group"><label for="content-summary">Resumen</label><textarea class="text-area" id="content-summary" maxlength="400"></textarea><small>Opcional.</small></div>
+        <div class="form-group"><label for="content-symptoms">Síntomas</label><textarea class="text-area" id="content-symptoms"></textarea><small>Opcional. Separa cada elemento con una coma.</small></div>
+        <div class="form-group"><label for="content-prevention">Prevención</label><textarea class="text-area" id="content-prevention"></textarea><small>Opcional. Separa cada elemento con una coma.</small></div>
+        <div class="form-group"><label for="content-alerts">Señales de alerta</label><textarea class="text-area" id="content-alerts"></textarea><small>Opcional. Separa cada elemento con una coma.</small></div>
+        <div class="form-group"><label>Provincias de referencia</label><div class="province-picker" id="province-picker"></div><small>Opcional. Si no seleccionas ninguna se asume "Todo el país". No representa casos en tiempo real.</small></div>
+        <div class="form-group"><label for="content-source">Fuente oficial</label><input class="text-input" id="content-source" type="url" maxlength="500" placeholder="https://www.paho.org/..."><small>Opcional. Si escribes sin "https://" se agrega automáticamente.</small></div>
+        <div class="form-group"><label for="content-organization">Organismo</label><input class="text-input" id="content-organization" maxlength="100" placeholder="Ejemplo: OPS/OMS"><small>Opcional.</small></div>
+        <div class="form-actions"><button class="button button-secondary" id="cancel-editor" type="button">Cancelar</button><button class="button button-primary" type="submit">Guardar contenido</button></div>
+      </form>
+    </article>
+  </div>
+
+  <div class="auth-gate" id="auth-gate">
+    <section class="auth-card" aria-labelledby="auth-title">
+      <span class="assistant-avatar"><i class="ph ph-lock-key"></i></span>
+      <p class="eyebrow">Acceso protegido</p>
+      <h2 id="auth-title">Administración MedInfo Ecuador</h2>
+      <p>Inicia sesión con el correo autorizado para gestionar el catálogo.</p>
+      <form class="admin-form" id="auth-form">
+        <div class="form-group"><label for="auth-email">Correo</label><input class="text-input" id="auth-email" type="email" placeholder="tu-correo@ejemplo.com" required></div>
+        <div class="form-group"><label for="auth-password">Contraseña</label><input class="text-input" id="auth-password" type="password" minlength="8" required></div>
+        <p class="form-error" id="auth-error" role="alert"></p>
+        <button class="button button-primary" type="submit">Iniciar sesión</button>
+        <button class="auth-link" id="register-admin" type="button">Crear acceso por primera vez</button>
+      </form>
+    </section>
+  </div>
+</body>
+</html>

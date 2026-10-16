@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mapa educativo de zonas de referencia para enfermedades en las 24 provincias del Ecuador.">
+  <title>Mapa de salud | MedInfo Ecuador</title>
+  <link rel="icon" href="assets/medinfo-logo.png" type="image/png">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="" defer></script>
+  <script src="js/common.js" defer></script>
+  <script src="js/mapa.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Ir al contenido</a>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Navegación principal">
+      <a class="brand" href="index.html" aria-label="MedInfo Ecuador, inicio"><img class="brand-symbol" src="assets/medinfo-logo.png" alt=""><span class="brand-wordmark"><strong>MedInfo</strong> Ecuador</span></a>
+      <button class="menu-toggle" type="button" data-menu-toggle aria-label="Abrir menú" aria-expanded="false"><i class="ph ph-list"></i></button>
+      <div class="nav-links" data-nav-links><a class="nav-link" href="index.html">Inicio</a><a class="nav-link" href="enfermedades.html">Enfermedades</a><a class="nav-link active" href="mapa.html">Mapa</a><a class="nav-link" href="admin.html">Administración</a><a class="nav-link cta" href="asistente.html">Consultar ALBA</a></div>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section class="map-hero">
+      <div class="container map-hero-grid">
+        <div><p class="eyebrow">Atlas educativo de salud</p><h1>Ecuador, provincia por provincia.</h1><p>Explora zonas asociadas a enfermedades del catálogo. El mapa es informativo y no representa casos ni brotes actuales.</p></div>
+        <div class="map-stats"><article><strong>24</strong><span>provincias</span></article><article><strong id="mapped-count">0</strong><span>enfermedades</span></article><article><strong id="source-count">0</strong><span>fuentes</span></article></div>
+      </div>
+    </section>
+
+    <section class="map-workspace container">
+      <div class="map-toolbar">
+        <div class="field-wrap"><i class="ph ph-funnel"></i><label class="sr-only" for="map-disease-filter">Filtrar por enfermedad</label><select class="select-input" id="map-disease-filter"><option value="">Todas las enfermedades</option></select></div>
+        <div class="map-legend"><span><i class="legend-dot low"></i>Pocas referencias</span><span><i class="legend-dot high"></i>Más referencias</span></div>
+      </div>
+      <div class="map-layout">
+        <div class="ecuador-map" id="ecuador-map" aria-label="Mapa interactivo de las provincias del Ecuador"><div class="map-loading"><i class="ph ph-map-trifold"></i><span>Preparando el mapa...</span></div></div>
+        <aside class="province-panel" id="province-panel">
+          <div class="panel-empty"><i class="ph ph-cursor-click"></i><h2>Selecciona una provincia</h2><p>Haz clic en el mapa para consultar las enfermedades relacionadas con esa zona.</p></div>
+        </aside>
+      </div>
+      <p class="map-disclaimer"><i class="ph ph-info"></i> Las zonas son referencias educativas generales. No indican prevalencia, número de casos ni alertas epidemiológicas vigentes.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container"><div class="footer-grid"><div><a class="brand" href="index.html" aria-label="MedInfo Ecuador, inicio"><img class="brand-symbol" src="assets/medinfo-logo.png" alt=""><span class="brand-wordmark"><strong>MedInfo</strong> Ecuador</span></a><p class="footer-about">Información educativa para comprender riesgos y medidas preventivas en Ecuador.</p></div><div class="footer-col"><h3>Explorar</h3><a href="enfermedades.html">Enfermedades</a><a href="asistente.html">ALBA</a></div><div class="footer-col"><h3>Datos geográficos</h3><a href="https://www.geoboundaries.org/" target="_blank" rel="noopener">geoBoundaries · CC0</a></div></div><div class="footer-bottom"><span>© <span data-year></span> MedInfo Ecuador.</span><span>Ante una emergencia, llama al ECU 911.</span></div></div></footer>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Consulta enfermedades frecuentes en Ecuador, sus síntomas, prevención y señales de alerta.">
+  <title>Enfermedades | MedInfo Ecuador</title>
+  <link rel="icon" href="assets/medinfo-logo.png" type="image/png">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+  <script src="js/common.js" defer></script>
+  <script src="js/enfermedades.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Ir al contenido</a>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Navegación principal">
+      <a class="brand" href="index.html" aria-label="MedInfo Ecuador, inicio"><img class="brand-symbol" src="assets/medinfo-logo.png" alt=""><span class="brand-wordmark"><strong>MedInfo</strong> Ecuador</span></a>
+      <button class="menu-toggle" type="button" data-menu-toggle aria-label="Abrir menú" aria-expanded="false"><i class="ph ph-list"></i></button>
+      <div class="nav-links" data-nav-links><a class="nav-link" href="index.html">Inicio</a><a class="nav-link active" href="enfermedades.html">Enfermedades</a><a class="nav-link" href="mapa.html">Mapa</a><a class="nav-link" href="admin.html">Administración</a><a class="nav-link cta" href="asistente.html">Consultar ALBA</a></div>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section class="page-hero">
+      <div class="container page-hero-grid">
+        <div><p class="eyebrow">Catálogo educativo</p><h1>Entender antes de alarmarse.</h1></div>
+        <p>Revisa síntomas habituales, medidas preventivas y señales que requieren atención profesional.</p>
+      </div>
+    </section>
+
+    <section class="search-panel" aria-label="Filtros del catálogo">
+      <div class="container search-row">
+        <div class="field-wrap"><i class="ph ph-magnifying-glass" aria-hidden="true"></i><label class="sr-only" for="disease-search">Buscar enfermedad o síntoma</label><input class="search-input" id="disease-search" type="search" placeholder="Busca por enfermedad o síntomas (ej: tos, fiebre, caída de cabello)..."></div>
+        <label class="sr-only" for="category-filter">Filtrar por categoría</label>
+        <select class="select-input" id="category-filter"><option value="">Todas las categorías</option></select>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="container">
+        <div class="catalog-meta"><span id="result-count">Cargando información...</span><span>Contenido educativo, no diagnóstico</span></div>
+        <div class="disease-grid" id="disease-grid" aria-live="polite"></div>
+        <div class="empty-state" id="empty-state"><i class="ph ph-magnifying-glass"></i><h2>No encontramos coincidencias</h2><p>Prueba otra palabra o selecciona una categoría diferente.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="disease-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <article class="modal"><button class="modal-close" type="button" aria-label="Cerrar información"><i class="ph ph-x"></i></button><div id="modal-content"></div></article>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container"><div class="footer-grid"><div><a class="brand" href="index.html" aria-label="MedInfo Ecuador, inicio"><img class="brand-symbol" src="assets/medinfo-logo.png" alt=""><span class="brand-wordmark"><strong>MedInfo</strong> Ecuador</span></a><p class="footer-about">Información educativa sobre salud en Ecuador. Ante una emergencia, llama al ECU 911.</p></div><div class="footer-col"><h3>Explorar</h3><a href="index.html">Inicio</a><a href="mapa.html">Mapa</a><a href="asistente.html">ALBA</a></div><div class="footer-col"><h3>Fuentes</h3><a href="https://www.salud.gob.ec/" target="_blank" rel="noopener">MSP Ecuador</a><a href="https://www.paho.org/es" target="_blank" rel="noopener">OPS</a><a href="https://www.who.int/es" target="_blank" rel="noopener">OMS</a></div></div><div class="footer-bottom"><span>© <span data-year></span> MedInfo Ecuador.</span><span>No reemplaza una consulta médica.</span></div></div>
+  </footer>
+</body>
+</html>
