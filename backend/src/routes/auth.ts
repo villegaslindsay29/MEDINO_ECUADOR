@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { z } from "zod";
+import { config } from "../config.js";
 import { requireAdmin, supabaseAuthRequest } from "../services/auth.js";
 
 const router = Router();
@@ -8,23 +9,13 @@ const credentialsSchema = z.object({
   password: z.string().min(8).max(100),
 });
 
-function configuredAdminEmail(): string | null {
-  const value = process.env.ADMIN_EMAIL?.trim().toLowerCase();
-  return value || null;
-}
-
 router.post("/login", async (req, res) => {
   const parsed = credentialsSchema.safeParse(req.body);
   if (!parsed.success) {
     res.status(400).json({ error: "Correo o contraseña inválidos." });
     return;
   }
-  const adminEmail = configuredAdminEmail();
-  if (!adminEmail) {
-    res.status(503).json({ error: "El servidor no tiene configurado el administrador (ADMIN_EMAIL)." });
-    return;
-  }
-  if (parsed.data.email.trim().toLowerCase() !== adminEmail) {
+  if (parsed.data.email.trim().toLowerCase() !== config.adminEmail) {
     res.status(403).json({ error: "Este correo no tiene acceso administrativo." });
     return;
   }
@@ -48,12 +39,7 @@ router.post("/register", async (req, res) => {
     res.status(400).json({ error: "Usa un correo válido y una contraseña de al menos 8 caracteres." });
     return;
   }
-  const adminEmail = configuredAdminEmail();
-  if (!adminEmail) {
-    res.status(503).json({ error: "El servidor no tiene configurado el administrador (ADMIN_EMAIL)." });
-    return;
-  }
-  if (parsed.data.email.trim().toLowerCase() !== adminEmail) {
+  if (parsed.data.email.trim().toLowerCase() !== config.adminEmail) {
     res.status(403).json({ error: "Este correo no está autorizado como administrador." });
     return;
   }

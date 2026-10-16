@@ -1,10 +1,11 @@
 import type { Request } from "express";
+import { config } from "../config.js";
 
 type SupabaseUser = { id: string; email?: string };
 
 function getConfig() {
-  const url = process.env.SUPABASE_URL;
-  const key = process.env.SUPABASE_PUBLISHABLE_KEY;
+  const url = config.supabaseUrl;
+  const key = config.supabasePublishableKey;
   if (!url || !key) throw new Error("SUPABASE_NOT_CONFIGURED");
   return { url, key };
 }
@@ -33,7 +34,6 @@ export async function requireAdmin(req: Request): Promise<SupabaseUser> {
   if (!response.ok) throw new Error("AUTH_INVALID");
 
   const user = (await response.json()) as SupabaseUser;
-  const adminEmail = process.env.ADMIN_EMAIL?.trim().toLowerCase();
-  if (!adminEmail || user.email?.toLowerCase() !== adminEmail) throw new Error("ADMIN_REQUIRED");
+  if (!config.adminEmail || user.email?.trim().toLowerCase() !== config.adminEmail) throw new Error("ADMIN_REQUIRED");
   return user;
 }
