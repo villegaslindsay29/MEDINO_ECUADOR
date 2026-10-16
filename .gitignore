@@ -1,6 +1,9 @@
+node_modules/
 backend/node_modules/
 backend/dist/
+.env
 backend/.env
+.vercel/
 .DS_Store
 Thumbs.db
 FUNCIONAMIENTO.md

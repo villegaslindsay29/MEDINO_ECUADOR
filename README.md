@@ -80,3 +80,20 @@ El correo permitido se define en `ADMIN_EMAIL`. En la primera visita a `admin.ht
 npm run typecheck
 npm run build
 ```
+
+## Despliegue en Vercel
+
+El proyecto se publica como un solo sitio: el frontend (`frontend/`) se sirve como estático y la API de Express se ejecuta como función serverless (`api/index.js`, que usa `backend/dist/app.js`).
+
+1. Importa el repositorio en Vercel y deja el **Root Directory en la raíz** del proyecto (no en `backend/`). El `vercel.json` ya define `buildCommand`, `outputDirectory` y el rewrite de `/api/*`.
+2. En **Settings → Environment Variables** agrega:
+   - `GEMINI_API_KEY`
+   - `GEMINI_MODEL`
+   - `SUPABASE_URL`
+   - `SUPABASE_PUBLISHABLE_KEY`
+   - `DATABASE_URL` (**usa la cadena del pooler de Supabase**, puerto `6543`, porque el puerto directo agota conexiones en serverless)
+   - `ADMIN_EMAIL`
+   - `ALLOWED_ORIGIN` (tu dominio de Vercel, por ejemplo `https://tu-proyecto.vercel.app`)
+3. Deploy: las rutas `/api/*` las atiende la función serverless y el resto son archivos estáticos.
+
+> En Vercel **no** se usa `backend/.env`; las variables se configuran en el panel. Para desarrollo local, copia `backend/.env.example` a `backend/.env`.
