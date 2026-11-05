@@ -1,9 +1,11 @@
 /* Inicio: ajustes aislados según la referencia visual del usuario. */
-.home-page .hero { padding: 48px 0; min-height: 470px; background-color: #e8f6ff; background-image: linear-gradient(90deg, #f1faff 0%, #f1faff 43%, rgba(241,250,255,.94) 49%, rgba(241,250,255,.35) 63%, transparent 75%), url('../assets/reference/inicio-estetoscopio.webp'); background-size: 100% 100%, auto 100%; background-repeat: no-repeat; background-position: center, right center; }
-.home-page .hero-grid { grid-template-columns: minmax(0, 620px); gap: 0; }
+.home-page .hero { padding: 32px 0; min-height: 0; background: #e8f6ff; }
+.home-page .hero-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); align-items: center; gap: 32px; }
+.home-page .home-medical-visual { min-width: 0; }
+.home-page .home-medical-visual img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: contain; border: 0; border-radius: 0; box-shadow: none; mix-blend-mode: multiply; }
 .home-page .hero-education { display: flex; align-items: center; gap: 12px; margin: 24px 0 0; color: #315466; font-size: .9rem; line-height: 1.5; }
 .home-page .hero-education i { color: #0077b6; font-size: 28px; }
-.home-page .hero h1 { font-size: clamp(2.6rem, 4vw, 4rem); letter-spacing: -.035em; line-height: 1.08; }
+.home-page .hero h1 { font-size: clamp(2.4rem, 3.7vw, 3.6rem); letter-spacing: -.035em; line-height: 1.08; }
 .home-page .hero .eyebrow { margin-bottom: 20px; }
 .home-page .hero-copy { max-width: 480px; font-size: clamp(1.1rem, 1.6vw, 1.5rem); line-height: 1.4; margin-block: 18px 30px; }
 .home-page .hero-actions { flex-wrap: nowrap; gap: 12px; }
@@ -40,8 +42,8 @@
 }
 @media (max-width: 900px) {
   .home-page .hero-grid { grid-template-columns: 1fr; }
-  .home-page .hero-grid > div { max-width: 570px; }
-  .home-page .hero { background-image: linear-gradient(90deg, rgba(241,250,255,.98), rgba(241,250,255,.92) 55%, rgba(241,250,255,.5)), url('../assets/reference/inicio-estetoscopio.webp'); background-size: 100% 100%, auto 85%; }
+  .home-page .hero-grid > div { max-width: 600px; }
+  .home-page .home-medical-visual { width: 100%; justify-self: center; }
   .home-page .hero-copy { max-width: 600px; }
   .home-page .trust-item { gap: 12px; padding: 16px 12px; }
   .home-page .trust-item strong { font-size: .9rem; }
@@ -49,7 +51,7 @@
   .home-page .home-choices .feature-main, .home-page .home-choices .feature-card { min-height: 0; }
 }
 @media (max-width: 640px) {
-  .home-page .hero { padding-block: 40px 32px; min-height: 0; background-size: 100% 100%, 100% auto; background-position: center, right bottom; }
+  .home-page .hero { padding-block: 32px 24px; }
   .home-page .hero h1 { font-size: clamp(2.3rem, 9vw, 3rem); }
   .home-page .hero-actions { flex-wrap: wrap; }
   .home-page .hero-actions .button { width: 100%; }
