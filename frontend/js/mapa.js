@@ -1,6 +1,5 @@
 const mapElement = document.querySelector("#ecuador-map");
 const panel = document.querySelector("#province-panel");
-const filter = document.querySelector("#map-disease-filter");
 const geoJsonUrl = "/api/map/ecuador";
 let diseases = [];
 let geoLayer;
@@ -47,27 +46,12 @@ function officialProvince(feature) {
 }
 
 function relatedDiseases(province) {
-  const selectedId = filter.value;
-  return diseases.filter((disease) => disease.provincias.includes(province) && (!selectedId || disease.id === selectedId));
-}
-
-function mapIntensity(province) {
-  if (filter.value) return relatedDiseases(province).length;
-  return diseases.filter((disease) => disease.provincias.includes(province) && disease.zona !== "Todo el país").length;
-}
-
-function fillColor(count, active) {
-  if (active) return "#07527c";
-  if (filter.value && count) return "#0077b6";
-  if (count >= 3) return "#0077b6";
-  if (count >= 2) return "#00b4d8";
-  if (count >= 1) return "#89d8dd";
-  return "#d5f2e5";
+  return diseases.filter((disease) => disease.provincias.includes(province));
 }
 
 function styleFeature(feature) {
-  const province = officialProvince(feature); const count = mapIntensity(province);
-  return { color: "#ffffff", weight: 1.4, fillColor: fillColor(count, province === selectedProvince), fillOpacity: 0.95 };
+  const province = officialProvince(feature);
+  return { color: "#ffffff", weight: 1.4, fillColor: province === selectedProvince ? "#0077b6" : "#b8dfe9", fillOpacity: 0.95 };
 }
 
 function renderPanel(province) {
@@ -102,7 +86,6 @@ async function initializeMap() {
     diseases = catalog; const geoData = await geoResponse.json();
     document.querySelector("#mapped-count").textContent = diseases.length;
     document.querySelector("#source-count").textContent = new Set(diseases.flatMap((item) => item.fuentes.map((source) => source.organismo))).size;
-    diseases.forEach((disease) => filter.insertAdjacentHTML("beforeend", `<option value="${window.escapeHTML(disease.id)}">${window.escapeHTML(disease.nombre)}</option>`));
 
     mapElement.innerHTML = '<div class="map-canvas" id="main-map-canvas"></div><div class="map-caption"><span>ECUADOR CONTINENTAL</span><small>Zonas educativas de referencia</small></div><div class="galapagos-inset"><div class="inset-label"><strong>Galápagos</strong><span>Región Insular</span></div><div id="galapagos-map"></div></div>';
     const map = L.map("main-map-canvas", { zoomControl: false, attributionControl: false, scrollWheelZoom: false, minZoom: 5, maxZoom: 9, zoomSnap: .25 });
@@ -118,9 +101,9 @@ async function initializeMap() {
     islandMap.fitBounds(islandLayer.getBounds(), { padding: [13, 13] });
 
     const requested = new URLSearchParams(window.location.search).get("disease");
-    if (requested && diseases.some((item) => item.id === requested)) { filter.value = requested; geoLayer.setStyle(styleFeature); islandLayer.setStyle(styleFeature); }
+    const requestedDisease = diseases.find((item) => item.id === requested);
+    if (requestedDisease?.provincias.length) renderPanel(requestedDisease.provincias[0]);
     renderProvinceList();
-    filter.addEventListener("change", () => { geoLayer.setStyle(styleFeature); islandLayer.setStyle(styleFeature); renderProvinceList(); if (selectedProvince) renderPanel(selectedProvince); });
   } catch (error) {
     mapElement.innerHTML = `<div class="map-loading error"><i class="ph ph-warning-circle"></i><span>${window.escapeHTML(error.message)}</span></div>`;
   }

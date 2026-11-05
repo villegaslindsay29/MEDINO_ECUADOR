@@ -5,6 +5,14 @@ const ageRange = document.querySelector("#age-range");
 const sendButton = document.querySelector("#send-button");
 const statusText = document.querySelector("#assistant-status");
 const clearButton = document.querySelector("#clear-chat");
+document.querySelector("#greet-alba")?.addEventListener("click", () => {
+  const robot = document.querySelector(".robot-stage");
+  robot.classList.remove("robot-greeting");
+  void robot.offsetWidth;
+  robot.classList.add("robot-greeting");
+  document.querySelector("#companion-reply").textContent = "¡Hola! Cuéntame en el chat cómo puedo orientarte.";
+  input.focus();
+});
 let quickPrompts = document.querySelector("#quick-prompts");
 let history = [];
 let loading = false;

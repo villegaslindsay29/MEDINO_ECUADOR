@@ -34,8 +34,7 @@
 
     <section class="map-workspace container">
       <div class="map-toolbar">
-        <div class="field-wrap"><i class="ph ph-funnel"></i><label class="sr-only" for="map-disease-filter">Filtrar por enfermedad</label><select class="select-input" id="map-disease-filter"><option value="">Todas las enfermedades</option></select></div>
-        <div class="map-legend"><span><i class="legend-dot low"></i>Pocas referencias</span><span><i class="legend-dot high"></i>Más referencias</span></div>
+        <div class="map-legend"><span><i class="legend-dot low" aria-hidden="true"></i>Provincias</span><span><i class="legend-dot high" aria-hidden="true"></i>Provincia seleccionada</span></div>
       </div>
       <div class="province-tools"><label for="province-search">Buscar provincia<input id="province-search" class="search-input" type="search" placeholder="Ejemplo: Guayas" list="province-names"><datalist id="province-names"></datalist></label><div class="view-switch" aria-label="Vista de provincias"><button type="button" id="show-map" aria-pressed="true">Mapa</button><button type="button" id="show-list" aria-pressed="false">Lista</button></div></div>
       <div class="map-layout">

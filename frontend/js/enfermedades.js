@@ -9,6 +9,27 @@ let carouselObservers = [];
 
 const normalize = (value) => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
+function catalogCategory(disease) {
+  const category = normalize(disease.categoria);
+  const name = normalize(disease.nombre);
+  if (category.includes("respiratori") || name === "tuberculosis") return "Respiratorias";
+  if (category.includes("dermat") || category.includes("piel")) return "Piel";
+  if (category.includes("digest")) return "Digestivas";
+  if (category.includes("mental")) return "Salud mental";
+  if (category.includes("materno")) return "Salud materno-infantil";
+  if (/infeccio|vector|bacterian|transmisible/.test(category)) return "Infecciosas";
+  if (category.includes("cronic")) return "Crónicas";
+  return disease.categoria;
+}
+
+function compactCard(disease) {
+  return `<article class="disease-card compact-disease-card">
+    <div class="compact-photo"><img src="assets/reference/${window.diseasePhoto(disease)}.webp" alt="" width="400" height="140" loading="lazy"><span>${window.escapeHTML(catalogCategory(disease))}</span></div>
+    <div class="compact-content"><h3>${window.escapeHTML(disease.nombre)}</h3><p>Síntomas, prevención y señales de alerta.</p>
+    <div class="compact-actions"><button type="button" data-disease-id="${window.escapeHTML(disease.id)}"><i class="ph ph-list-checks" aria-hidden="true"></i> Síntomas</button><button type="button" data-disease-id="${window.escapeHTML(disease.id)}"><i class="ph ph-shield-check" aria-hidden="true"></i> Prevención</button><button type="button" class="compact-details" data-disease-id="${window.escapeHTML(disease.id)}">Ver información <i class="ph ph-arrow-right" aria-hidden="true"></i></button></div></div>
+  </article>`;
+}
+
 function parseSearchTerms(value) {
   return value
     .split(",")
@@ -54,13 +75,14 @@ function render() {
 
   const groups = new Map();
   filtered.forEach((disease) => {
-    if (!groups.has(disease.categoria)) groups.set(disease.categoria, []);
-    groups.get(disease.categoria).push(disease);
+    const category = catalogCategory(disease);
+    if (!groups.has(category)) groups.set(category, []);
+    groups.get(category).push(disease);
   });
   grid.innerHTML = [...groups].map(([name, items], index) => `
     <section class="category-collection" aria-labelledby="category-title-${index}">
       <header class="collection-heading"><h2 id="category-title-${index}">${window.escapeHTML(name)}</h2><span>${items.length} ${items.length === 1 ? "enfermedad" : "enfermedades"}</span></header>
-      <div class="disease-carousel" id="category-track-${index}" role="region" aria-label="Enfermedades: ${window.escapeHTML(name)}" tabindex="0">${items.map(window.createDiseaseCard).join("")}</div>
+      <div class="disease-carousel" id="category-track-${index}" role="region" aria-label="Enfermedades: ${window.escapeHTML(name)}" tabindex="0">${items.map(compactCard).join("")}</div>
       <div class="carousel-controls"><button type="button" data-direction="-1" aria-controls="category-track-${index}" aria-label="Anteriores de ${window.escapeHTML(name)}"><i class="ph ph-caret-left" aria-hidden="true"></i></button><button type="button" data-direction="1" aria-controls="category-track-${index}" aria-label="Siguientes de ${window.escapeHTML(name)}"><i class="ph ph-caret-right" aria-hidden="true"></i></button></div>
     </section>`).join("");
   grid.querySelectorAll(".category-collection").forEach((section) => {
