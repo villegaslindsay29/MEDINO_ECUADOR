@@ -26,17 +26,17 @@ function mapIntensity(province) {
 }
 
 function fillColor(count, active) {
-  if (active) return "#5b3765";
-  if (filter.value && count) return "#9e6899";
-  if (count >= 3) return "#9e6899";
-  if (count >= 2) return "#ba88ae";
-  if (count >= 1) return "#d6a8c4";
-  return "#f3ccde";
+  if (active) return "#07527c";
+  if (filter.value && count) return "#0077b6";
+  if (count >= 3) return "#0077b6";
+  if (count >= 2) return "#00b4d8";
+  if (count >= 1) return "#89d8dd";
+  return "#d5f2e5";
 }
 
 function styleFeature(feature) {
   const province = officialProvince(feature); const count = mapIntensity(province);
-  return { color: "#fdf9fb", weight: 1.4, fillColor: fillColor(count, province === selectedProvince), fillOpacity: 0.95 };
+  return { color: "#ffffff", weight: 1.4, fillColor: fillColor(count, province === selectedProvince), fillOpacity: 0.95 };
 }
 
 function renderPanel(province) {

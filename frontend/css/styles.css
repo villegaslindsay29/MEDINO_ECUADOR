@@ -1,22 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;700&family=Lato:wght@400;700&family=Merriweather:wght@700&family=Montserrat:wght@700&family=Poppins:wght@500;600&display=swap");
 
 :root {
-  --ink: #3f2c45;
-  --ink-soft: #715c74;
-  --paper: #fdf9fb;
+  --ink: #123347;
+  --ink-soft: #486575;
+  --paper: #f7fbfd;
   --surface: #ffffff;
-  --surface-soft: #f7eaf2;
-  --line: #e5cfdd;
-  --green: #9e6899;
-  --green-dark: #5b3765;
-  --mint: #d6a8c4;
-  --coral: #f3ccde;
-  --amber: #ba88ae;
-  --blue: #9e6899;
-  --brand-accent: #9e6899;
+  --surface-soft: #eaf5f9;
+  --line: #cce1e9;
+  --green: #0077b6;
+  --green-dark: #07527c;
+  --mint: #d5f2e5;
+  --coral: #c5edf4;
+  --amber: #2ead74;
+  --blue: #00b4d8;
+  --brand-accent: #0077b6;
   --danger: #a93226;
   --radius: 18px;
-  --shadow: 0 24px 70px rgba(91, 55, 101, 0.14);
+  --shadow: 0 24px 70px rgba(18, 51, 71, 0.14);
   color-scheme: light;
 }
 
@@ -26,7 +26,7 @@ body {
   margin: 0;
   color: var(--ink);
   background: var(--paper);
-  font-family: "Figtree", sans-serif;
+  font-family: "Lato", sans-serif;
   font-size: 17px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -836,3 +836,52 @@ body { text-rendering: optimizeLegibility; }
   .button, .disease-card, .feature-card, .quick-prompt, .suggestion-card,
   .stat, .province-disease, .footer-col a, .icon-button { transition: none !important; transform: none !important; }
 }
+
+/* Identidad médica: azul, verde salud y superficies claras. */
+:root {
+  --health-green: #2ead74;
+  --health-cyan: #00b4d8;
+  --astra-shadow-xs: 0 1px 2px rgba(18, 51, 71, .08);
+  --astra-shadow-sm: 0 8px 24px rgba(18, 51, 71, .11);
+  --astra-ring: 0 0 0 4px rgba(0, 119, 182, .28);
+}
+.brand-wordmark, .brand-wordmark strong { font-family: "Montserrat", sans-serif; font-weight: 700; }
+.nav-link { font-family: "Poppins", sans-serif; font-weight: 500; }
+.button { font-family: "Poppins", sans-serif; font-weight: 600; }
+.admin-hero h1, .panel-head h2 { font-family: "Merriweather", Georgia, serif; font-weight: 700; letter-spacing: -.035em; line-height: 1.15; }
+.leaflet-container { font-family: "Lato", sans-serif; }
+
+.site-header { border-bottom-color: rgba(0, 119, 182, .18); background: rgba(255, 255, 255, .96); box-shadow: 0 1px 0 rgba(18, 51, 71, .06), 0 12px 32px -24px rgba(18, 51, 71, .25); }
+.search-panel { background: rgba(247, 251, 253, .96); }
+.feature-main, .orientation, .site-footer, .discovery-card { background: var(--green-dark); }
+.feature-main p, .orientation .section-copy, .discovery-card span, .assistant-sidebar > p, .privacy-note { color: #dceef5; }
+.orientation .eyebrow { color: #a9e9df; }
+.orientation .eyebrow::before { background: #a9e9df; }
+.orientation .button-secondary { border-color: #9ac7d9; }
+.site-footer { color: #e4f3f8; }
+.disease-preview { background: #eef8fb; }
+.map-intro-visual, .ecuador-map { background-color: #e6f5f8; }
+.ecuador-map { background-image: linear-gradient(rgba(0, 119, 182, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 119, 182, .05) 1px, transparent 1px); }
+.chat-preview, .assistant-safety, .suggestion-card, .compatibility-result, .quick-prompt { background-color: #f1f9fb; }
+.quick-prompt:hover, .suggestion-card:hover { background: #e4f3f7; }
+.quick-prompt-featured { color: white; background: var(--green); }
+.quick-prompt-featured:hover { color: white; background: var(--green-dark); }
+.chat-messages { background-color: #f3fafc; background-image: radial-gradient(rgba(0, 119, 182, .08) .7px, transparent .7px); }
+.assistant-stage .chat-messages { background: var(--surface); }
+.privacy-note { border-top-color: #6eaac5; }
+.pulse { background: var(--health-green); box-shadow: 0 0 0 6px rgba(46, 173, 116, .2); }
+.status::before { background: var(--health-green); }
+.legend-dot { background: #89d8dd; }
+.legend-dot.high { background: var(--green); }
+.disease-card:hover { border-color: #95c9da; box-shadow: 0 18px 44px rgba(18, 51, 71, .12); }
+.search-input:focus, .select-input:focus, .text-input:focus, .text-area:focus { box-shadow: 0 0 0 4px rgba(0, 119, 182, .15); }
+.text-input:hover, .search-input:hover, .select-input:hover, .text-area:hover { border-color: #86bfce; }
+.search-input::placeholder, .text-input::placeholder, .text-area::placeholder { color: #597482; }
+.assistant-stage .composer { box-shadow: 0 12px 38px rgba(18, 51, 71, .11); }
+.assistant-stage .composer:focus-within { box-shadow: 0 12px 38px rgba(18, 51, 71, .13), 0 0 0 3px rgba(0, 119, 182, .18); }
+.chat-messages::-webkit-scrollbar-thumb { background: #a7d5df; }
+.modal-backdrop { background: rgba(18, 51, 71, .75); }
+.auth-gate { background: rgba(18, 51, 71, .9); }
+.galapagos-inset, .leaflet-control-zoom { border-color: rgba(18, 51, 71, .18) !important; box-shadow: 0 14px 34px rgba(18, 51, 71, .14) !important; }
+.button-primary { box-shadow: 0 10px 24px -14px rgba(0, 82, 124, .55); }
+.button-primary:hover { box-shadow: 0 16px 32px -16px rgba(0, 82, 124, .6); }
