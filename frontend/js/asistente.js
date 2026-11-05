@@ -11,7 +11,6 @@ document.querySelector("#greet-alba")?.addEventListener("click", () => {
   void robot.offsetWidth;
   robot.classList.add("robot-greeting");
   document.querySelector("#companion-reply").textContent = "¡Hola! Cuéntame en el chat cómo puedo orientarte.";
-  input.focus();
 });
 let quickPrompts = document.querySelector("#quick-prompts");
 let history = [];

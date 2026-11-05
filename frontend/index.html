@@ -10,11 +10,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/reference.css">
+  <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css">
   <script src="js/common.js" defer></script>
   <script src="js/home.js" defer></script>
 </head>
-<body>
+<body class="home-page">
   <a class="skip-link" href="#contenido">Ir al contenido</a>
   <header class="site-header">
     <nav class="nav container" aria-label="Navegación principal">
@@ -36,18 +37,18 @@
         <div>
           <p class="eyebrow">Información educativa para Ecuador</p>
           <h1>Conocer también es <span>cuidarse.</span></h1>
-          <p class="hero-copy">Consulta enfermedades frecuentes y recibe orientación responsable sobre tus síntomas, sin reemplazar la atención médica.</p>
+          <p class="hero-copy">Información clara sobre salud, prevención y el siguiente paso.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="asistente.html">Hablar con ALBA <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
-            <a class="button button-secondary" href="enfermedades.html">Explorar enfermedades</a>
+            <a class="button button-primary" href="asistente.html"><i class="ph ph-chat-circle" aria-hidden="true"></i> Hablar con ALBA</a>
+            <a class="button button-secondary" href="enfermedades.html"><i class="ph ph-book-open" aria-hidden="true"></i> Explorar enfermedades</a>
           </div>
         </div>
         <div class="hero-visual" aria-label="Profesional de salud atendiendo a una paciente">
           <img class="hero-photo" src="assets/reference/consulta.webp" alt="Profesional de salud conversando con una paciente" width="795" height="317" fetchpriority="high">
           <div class="visual-stamp"><div><strong>EC</strong><span>Enfoque local</span></div></div>
           <aside class="visual-note">
-            <div class="visual-note-top"><span class="pulse"></span> Orientación responsable</div>
-            <p>La información ayuda a decidir el siguiente paso, pero no sustituye un diagnóstico profesional.</p>
+            <i class="ph ph-heartbeat" aria-hidden="true"></i><div><div class="visual-note-top">Orientación responsable</div>
+            <p>No sustituye una consulta médica.</p></div>
           </aside>
         </div>
       </div>
@@ -55,33 +56,30 @@
 
     <section class="trust-strip" aria-label="Principios de MedInfo Ecuador">
       <div class="container trust-grid">
-        <div class="trust-item"><strong>Una herramienta educativa</strong><span>Diseñada para comprender, prevenir y actuar.</span></div>
-        <div class="trust-item"><i class="ph ph-shield-check" aria-hidden="true"></i><strong>Fuentes confiables</strong><span>MSP, OPS y OMS</span></div>
-        <div class="trust-item"><i class="ph ph-map-pin" aria-hidden="true"></i><strong>Contexto ecuatoriano</strong><span>Riesgos y prevención local</span></div>
-        <div class="trust-item"><i class="ph ph-device-mobile" aria-hidden="true"></i><strong>Acceso sencillo</strong><span>Adaptado a cada dispositivo</span></div>
+        <div class="trust-item"><i class="ph ph-book-open" aria-hidden="true"></i><strong>Fuentes consultables</strong></div>
+        <div class="trust-item"><i class="ph ph-map-pin" aria-hidden="true"></i><strong>Contexto ecuatoriano</strong></div>
+        <div class="trust-item"><i class="ph ph-laptop" aria-hidden="true"></i><strong>Acceso sencillo</strong></div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section home-choices">
       <div class="container">
         <h2 class="section-title reveal">¿Qué necesitas hoy?</h2>
-          <p class="section-copy reveal">MedInfo Ecuador organiza contenidos de salud y ofrece una ruta sencilla desde la consulta inicial hasta las señales que requieren atención.</p>
         <div class="feature-grid">
           <article class="feature-main reveal">
-            <i class="ph ph-chat-centered-dots" aria-hidden="true"></i>
-            <h3>Describe lo que sientes con tus propias palabras.</h3>
-            <p>El asistente usa Gemini para ofrecer orientación general, identificar señales de alerta y sugerir el siguiente paso.</p>
-            <a class="button button-secondary" href="asistente.html">Iniciar conversación</a>
+            <i class="ph ph-stethoscope" aria-hidden="true"></i>
+            <div><h3>Consultar síntomas</h3><p>Encuentra información educativa sobre síntomas, posibles causas y recomendaciones generales.</p></div>
+            <a class="card-link" href="asistente.html">Consultar síntomas <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
           </article>
           <div class="feature-stack">
             <article class="feature-card tinted reveal">
-              <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
-              <div><h3>Búsqueda directa</h3><p>Filtra enfermedades por nombre, síntoma o categoría sin recorrer información innecesaria.</p></div>
+              <i class="ph ph-book-open" aria-hidden="true"></i>
+              <div><h3>Explorar enfermedades</h3><p>Conoce de forma clara qué son, cómo se previenen y cuáles son sus señales de alerta.</p></div>
               <a class="card-link" href="enfermedades.html">Ver enfermedades <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
             </article>
             <article class="feature-card reveal">
-              <i class="ph ph-warning-circle" aria-hidden="true"></i>
-              <div><h3>Alertas visibles</h3><p>Reconoce situaciones en las que es importante buscar atención médica inmediata.</p></div>
+              <i class="ph ph-map-pin" aria-hidden="true"></i>
+              <div><h3>Conocer mi provincia</h3><p>Explora las fichas de salud asociadas a tu provincia y sus recomendaciones de prevención.</p></div>
               <a class="card-link" href="mapa.html">Conocer mi provincia <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
             </article>
           </div>

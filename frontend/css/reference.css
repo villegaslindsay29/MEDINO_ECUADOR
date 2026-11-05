@@ -65,19 +65,19 @@ body { background: #fbfefe; }
 .disease-card::before { height: 4px; }
 .disease-carousel { grid-auto-columns: calc((100% - 48px) / 3); }
 .category-collections { gap: 32px; }
-.disease-carousel .compact-disease-card { min-height: 0; padding: 0; border-radius: 14px; display: flex; flex-direction: column; border: 1px solid #d4e4e9; transition: border-color 180ms ease, box-shadow 180ms ease; }
+.disease-carousel .compact-disease-card { min-height: 0; padding: 0; border-radius: 10px; display: flex; flex-direction: column; border: 1px solid #d4e4e9; transition: border-color 180ms ease, box-shadow 180ms ease; }
 .disease-carousel .compact-disease-card:hover, .disease-carousel .compact-disease-card:focus-within { transform: none; border-color: #00a1ce; box-shadow: 0 0 0 1px #00a1ce, 0 6px 18px rgba(0,119,182,.1); }
 .compact-photo { position: relative; }
-.compact-photo img { width: 100%; height: clamp(100px, 7vw, 120px); object-fit: cover; }
-.compact-photo span { position: absolute; top: 18px; left: 18px; display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 20px; background: #e1f6ee; color: #145b4d; font-size: .8rem; line-height: 1.4; }
-.compact-photo span i { font-size: 18px; }
-.compact-content { padding: 14px 18px 12px; display: flex; flex-direction: column; flex: 1; background: linear-gradient(#fff, #fbfefe); }
-.disease-carousel .compact-disease-card h3 { margin: 0 0 6px; font-family: "Lato", sans-serif; font-size: 1.4rem; font-weight: 700; letter-spacing: -.025em; line-height: 1.2; }
-.compact-content > p { font-size: .95rem; margin: 0 0 10px; line-height: 1.5; }
-.compact-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 10px; margin-top: auto; }
-.compact-actions button { display: inline-flex; align-items: center; justify-content: center; gap: 5px; border: 0; border-radius: 8px; background: transparent; color: #0077b6; padding: 6px 0; min-height: 44px; font-size: .85rem; white-space: nowrap; }
-.compact-actions button i { font-size: 18px; }
-.compact-actions .compact-details { margin-left: auto; padding-inline: 8px; font-weight: 700; }
+.compact-photo img { width: 100%; height: 86px; object-fit: cover; }
+.compact-photo span { position: absolute; top: 10px; left: 12px; display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 20px; background: #e1f6ee; color: #145b4d; font-size: .7rem; line-height: 1.4; }
+.compact-photo span i { font-size: 14px; }
+.compact-content { padding: 10px 14px 4px; display: flex; flex-direction: column; flex: 1; background: #fff; }
+.disease-carousel .compact-disease-card h3 { margin: 0 0 4px; font-family: "Lato", sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: -.02em; line-height: 1.2; }
+.compact-content > p { font-size: .8rem; margin: 0 0 4px; line-height: 1.4; }
+.compact-actions { display: flex; align-items: center; flex-wrap: nowrap; gap: 6px; margin-top: auto; }
+.compact-actions button { display: inline-flex; align-items: center; justify-content: center; gap: 3px; border: 0; border-radius: 6px; background: transparent; color: #0077b6; padding: 4px 0; min-height: 40px; font-size: .72rem; white-space: nowrap; }
+.compact-actions button i { font-size: 14px; }
+.compact-actions .compact-details { margin-left: auto; padding-inline: 2px; font-weight: 700; }
 .compact-details:hover, .compact-details:focus-visible { background: #def5fc; }
 .action-divider { height: 18px; width: 1px; background: #b9cbd3; }
 .info-block.detail-highlight { background: #eef9fc; border-radius: 10px; padding: 18px; scroll-margin-block: 24px; }
@@ -103,10 +103,9 @@ body { background: #fbfefe; }
 .collection-heading h2 { margin: 0; font-size: clamp(1.35rem, 2.3vw, 1.9rem); }
 .collection-heading > span { color: var(--ink-soft); font-size: .9rem; }
 .disease-carousel { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 72px) / 4); gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 4px; overscroll-behavior-x: contain; padding: 4px 4px 16px; scrollbar-width: thin; scrollbar-color: #b7dce9 transparent; }
-.disease-carousel .disease-card { scroll-snap-align: start; min-width: 0; min-height: 380px; padding: 20px; border-radius: 8px; box-shadow: 0 5px 16px rgba(14,76,103,.06); }
+.disease-carousel .disease-card { scroll-snap-align: start; min-width: 0; box-shadow: 0 5px 16px rgba(14,76,103,.06); }
 .disease-carousel .disease-card::before { display: none; }
 .disease-carousel .disease-photo { width: calc(100% + 40px); margin: -20px -20px 20px; height: 180px; }
-.disease-carousel .disease-card h3 { margin-top: 20px; font-size: 1.2rem; }
 .disease-carousel .card-link { margin-top: auto; padding-top: 16px; }
 .carousel-controls { display: flex; justify-content: center; gap: 10px; margin-top: 8px; }
 .carousel-controls button { display: grid; place-items: center; width: 44px; height: 44px; border: 0; border-radius: 10px; color: #fff; background: #0077b6; font-size: 22px; }
