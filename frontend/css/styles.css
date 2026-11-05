@@ -937,3 +937,50 @@ body { text-rendering: optimizeLegibility; }
 .chat-empty .assistant-avatar { background: #2ead74; }
 .assistant-stage .send-button { color: #123347; background: #2ead74; }
 .assistant-stage .send-button:hover, .assistant-stage .composer:focus-within .send-button { color: #fff; background: #167a50; }
+
+/* Referencia clínica: acabados suaves sin alterar la estructura de cada página. */
+.site-header { background: rgba(245, 251, 255, .97); border-bottom-color: #c9e4f1; }
+.brand-wordmark { color: #0077b6; }
+.brand-wordmark strong { color: #123d68; }
+.nav-link.active:not(.cta) { color: #07527c; background: #d9effb; }
+.nav-link.cta { background: #006ba7; }
+.nav-link.cta:hover { background: #07527c; }
+.hero, .page-hero, .map-hero, .admin-hero {
+  background: radial-gradient(ellipse at 90% 10%, rgba(0, 180, 216, .10), transparent 38%), linear-gradient(135deg, #f8fcff, #eaf6fd);
+}
+.hero h1, .page-hero h1, .map-hero h1, .admin-hero h1 { color: #103b65; }
+.hero h1 span { color: #0077b6; }
+.visual-stamp { color: #07527c; background: #c8efe2; }
+.visual-note { background: #103b65; }
+.feature-main { background: #07527c; }
+.feature-main > i { color: #a3e5df; }
+.feature-card.tinted { background: #e2f6f0; }
+.disease-preview { background: #edf7fc; }
+.disease-card, .stat, .admin-panel, .map-layout, .map-toolbar {
+  border-color: #cfe3ee;
+  box-shadow: 0 6px 22px rgba(24, 87, 127, .08);
+}
+.disease-card { background: #fff; }
+.disease-card h3, .stat strong { color: #103b65; }
+.card-meta span:first-child { color: #07527c; background: #e2f2fb; }
+.disease-specialist i { color: #0077b6; }
+.ai-origin, .prototype-badge { color: #145c4d; background: #d1f2e4; }
+.map-intro-visual, .ecuador-map { background-color: #e3f3fc; }
+.map-intro-visual { border-bottom-color: #00b4d8; }
+.map-toolbar { position: relative; z-index: 1; }
+.map-layout { box-shadow: 0 10px 30px rgba(24, 87, 127, .08); }
+.orientation { background: #eaf7fb; }
+.orientation .chat-preview { box-shadow: 0 20px 50px rgba(24, 87, 127, .12); }
+.admin-stats .stat, .admin-stats .stat:nth-child(2), .admin-stats .stat:nth-child(3) { display: flex; align-items: center; gap: 18px; background: #fff; border-color: #cfe3ee; }
+.stat > i { display: grid; width: 54px; height: 54px; flex: 0 0 auto; place-items: center; color: #0077b6; background: #e3f4fb; border-radius: 13px; font-size: 28px; }
+.admin-stats .stat:nth-child(3) > i { color: #167a50; background: #e1f6ed; }
+.stat strong { margin-top: 5px; }
+.assistant-stage .chat-shell { background: #fff; }
+.assistant-stage .chat-header { border-bottom: 1px solid #e4f1f6; }
+.assistant-stage .composer { border-color: #c7e2ee; }
+
+@media (max-width: 640px) {
+  .hero-photo { box-shadow: 10px 10px 0 #d5f2e5, var(--shadow); }
+  .admin-stats .stat { padding: 18px 20px; }
+  .stat > i { width: 48px; height: 48px; font-size: 25px; }
+}
