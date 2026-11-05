@@ -1,13 +1,11 @@
 const grid = document.querySelector("#disease-grid");
 const search = document.querySelector("#disease-search");
-const category = document.querySelector("#category-filter");
 const count = document.querySelector("#result-count");
 const empty = document.querySelector("#empty-state");
-const sort = document.querySelector("#disease-sort");
-const chips = document.querySelector("#category-chips");
 const modal = document.querySelector("#disease-modal");
 const modalContent = document.querySelector("#modal-content");
 let diseases = [];
+let carouselObservers = [];
 
 const normalize = (value) => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
@@ -45,17 +43,42 @@ function closeModal() {
 }
 
 function render() {
+  carouselObservers.forEach((observer) => observer.disconnect());
+  carouselObservers = [];
   const terms = parseSearchTerms(search.value);
-  const selectedCategory = category.value;
   const filtered = diseases.filter((disease) => {
     const searchable = normalize([disease.nombre, disease.resumen, disease.categoria, disease.especialista, ...disease.sintomas].join(" "));
     const matchesTerm = terms.length === 0 || terms.some((term) => searchable.includes(term));
-    return matchesTerm && (!selectedCategory || disease.categoria === selectedCategory);
+    return matchesTerm;
   });
 
-  filtered.sort((a, b) => a.nombre.localeCompare(b.nombre, "es") * (sort.value === "desc" ? -1 : 1));
-  grid.innerHTML = filtered.map(window.createDiseaseCard).join("");
-  chips.querySelectorAll("button").forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.category === selectedCategory)));
+  const groups = new Map();
+  filtered.forEach((disease) => {
+    if (!groups.has(disease.categoria)) groups.set(disease.categoria, []);
+    groups.get(disease.categoria).push(disease);
+  });
+  grid.innerHTML = [...groups].map(([name, items], index) => `
+    <section class="category-collection" aria-labelledby="category-title-${index}">
+      <header class="collection-heading"><h2 id="category-title-${index}">${window.escapeHTML(name)}</h2><span>${items.length} ${items.length === 1 ? "enfermedad" : "enfermedades"}</span></header>
+      <div class="disease-carousel" id="category-track-${index}" role="region" aria-label="Enfermedades: ${window.escapeHTML(name)}" tabindex="0">${items.map(window.createDiseaseCard).join("")}</div>
+      <div class="carousel-controls"><button type="button" data-direction="-1" aria-controls="category-track-${index}" aria-label="Anteriores de ${window.escapeHTML(name)}"><i class="ph ph-caret-left" aria-hidden="true"></i></button><button type="button" data-direction="1" aria-controls="category-track-${index}" aria-label="Siguientes de ${window.escapeHTML(name)}"><i class="ph ph-caret-right" aria-hidden="true"></i></button></div>
+    </section>`).join("");
+  grid.querySelectorAll(".category-collection").forEach((section) => {
+    const track = section.querySelector(".disease-carousel");
+    const controls = section.querySelector(".carousel-controls");
+    const buttons = controls.querySelectorAll("button");
+    const update = () => {
+      const max = track.scrollWidth - track.clientWidth;
+      controls.hidden = max <= 2;
+      buttons[0].disabled = track.scrollLeft <= 2;
+      buttons[1].disabled = track.scrollLeft >= max - 2;
+    };
+    track.addEventListener("scroll", update, { passive: true });
+    const resize = new ResizeObserver(update);
+    resize.observe(track);
+    carouselObservers.push(resize);
+    update();
+  });
   count.textContent = `${filtered.length} ${filtered.length === 1 ? "resultado" : "resultados"}`;
   empty.style.display = filtered.length ? "none" : "block";
   empty.querySelector("h2").textContent = diseases.length ? "No encontramos coincidencias" : "El catálogo todavía no tiene fichas";
@@ -66,20 +89,16 @@ modal.querySelector(".modal-close").addEventListener("click", closeModal);
 modal.addEventListener("click", (event) => { if (event.target === modal) closeModal(); });
 document.addEventListener("keydown", (event) => { if (event.key === "Escape" && modal.classList.contains("open")) closeModal(); });
 search.addEventListener("input", render);
-category.addEventListener("change", render);
-sort.addEventListener("change", render);
-chips.addEventListener("click", (event) => {
-  const button = event.target.closest("[data-category]");
+grid.addEventListener("click", (event) => {
+  const button = event.target.closest("[data-direction]");
   if (!button) return;
-  category.value = button.dataset.category;
-  render();
+  const track = document.getElementById(button.getAttribute("aria-controls"));
+  track.scrollBy({ left: Number(button.dataset.direction) * track.clientWidth * .85, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
 });
 
 window.loadDiseases()
   .then((data) => {
     diseases = data;
-    chips.innerHTML = ["", ...new Set(diseases.map((item) => item.categoria))].map((name) => `<button type="button" class="category-chip" data-category="${window.escapeHTML(name)}" aria-pressed="false">${window.escapeHTML(name || "Todas")}</button>`).join("");
-    [...new Set(diseases.map((item) => item.categoria))].sort().forEach((item) => category.insertAdjacentHTML("beforeend", `<option value="${window.escapeHTML(item)}">${window.escapeHTML(item)}</option>`));
     const urlSymptoms = new URLSearchParams(window.location.search).get("symptoms");
     if (urlSymptoms) search.value = urlSymptoms;
     render();
