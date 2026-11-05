@@ -1,6 +1,8 @@
 /* Inicio: ajustes aislados según la referencia visual del usuario. */
-.home-page .hero { padding: 24px 0; background: #edf9fc; }
-.home-page .hero-grid { grid-template-columns: .9fr 1.1fr; gap: 32px; }
+.home-page .hero { padding: 56px 0; min-height: 490px; background-color: #e8f6ff; background-image: linear-gradient(90deg, #f1faff 0%, rgba(241,250,255,.98) 30%, rgba(241,250,255,.9) 43%, rgba(241,250,255,.18) 65%, transparent 80%), url('../assets/reference/inicio-estetoscopio.webp'); background-size: cover; background-position: center, right center; }
+.home-page .hero-grid { grid-template-columns: minmax(0, 620px); gap: 0; }
+.home-page .hero-education { display: flex; align-items: center; gap: 12px; margin: 24px 0 0; color: #315466; font-size: .9rem; line-height: 1.5; }
+.home-page .hero-education i { color: #0077b6; font-size: 28px; }
 .home-page .hero h1 { font-size: clamp(2.6rem, 4vw, 4rem); letter-spacing: -.035em; line-height: 1.08; }
 .home-page .hero .eyebrow { margin-bottom: 20px; }
 .home-page .hero-copy { max-width: 480px; font-size: clamp(1.1rem, 1.6vw, 1.5rem); line-height: 1.4; margin-block: 18px 30px; }
@@ -10,7 +12,7 @@
 .home-page .hero-actions .button-secondary { border-color: #0077b6; background: #fff; }
 .home-page .hero-photo { height: 390px; border-radius: 30px; object-position: center; }
 .home-page .visual-note { display: flex; align-items: center; gap: 14px; width: auto; max-width: calc(100% - 32px); padding: 14px 18px; border-radius: 14px; bottom: 20px; right: 16px; }
-.home-page .visual-note > i { color: #7752a0; font-size: 34px; padding-right: 14px; border-right: 1px solid #c7d3d9; }
+.home-page .visual-note > i { color: #0077b6; font-size: 34px; padding-right: 14px; border-right: 1px solid #c7d3d9; }
 .home-page .visual-note-top { margin: 0 0 3px; font-size: .95rem; }
 .home-page .visual-note p { font-size: .85rem; }
 .home-page .trust-strip { margin-top: 28px; }
@@ -38,6 +40,8 @@
 }
 @media (max-width: 900px) {
   .home-page .hero-grid { grid-template-columns: 1fr; }
+  .home-page .hero-grid > div { max-width: 570px; }
+  .home-page .hero { background-image: linear-gradient(90deg, rgba(241,250,255,.98), rgba(241,250,255,.92) 55%, rgba(241,250,255,.5)), url('../assets/reference/inicio-estetoscopio.webp'); }
   .home-page .hero-copy { max-width: 600px; }
   .home-page .trust-item { gap: 12px; padding: 16px 12px; }
   .home-page .trust-item strong { font-size: .9rem; }
@@ -45,7 +49,7 @@
   .home-page .home-choices .feature-main, .home-page .home-choices .feature-card { min-height: 0; }
 }
 @media (max-width: 640px) {
-  .home-page .hero { padding-block: 32px 24px; }
+  .home-page .hero { padding-block: 40px 32px; min-height: 0; background-position: center, 65% center; }
   .home-page .hero h1 { font-size: clamp(2.3rem, 9vw, 3rem); }
   .home-page .hero-actions { flex-wrap: wrap; }
   .home-page .hero-actions .button { width: 100%; }
