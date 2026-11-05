@@ -7,6 +7,7 @@
   <title>Administración | MedInfo Ecuador</title>
   <link rel="icon" href="assets/medinfo-logo.png" type="image/png">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/reference.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css">
   <script src="js/common.js" defer></script>
   <script src="js/admin.js" defer></script>
@@ -62,6 +63,7 @@
   </div>
 
   <div class="auth-gate" id="auth-gate">
+    <aside class="auth-intro"><a class="auth-home" href="index.html"><i class="ph ph-arrow-left" aria-hidden="true"></i> Volver al inicio</a><h2>Información clara,<br>contenido bien cuidado.</h2><p>Gestiona el catálogo educativo de MedInfo Ecuador.</p><div class="auth-illustration" aria-hidden="true"><i class="ph ph-files"></i><i class="ph ph-shield-check"></i></div><ul><li>Organiza las fichas</li><li>Revisa los contenidos</li><li>Mantén las fuentes al día</li></ul></aside>
     <section class="auth-card" aria-labelledby="auth-title">
       <span class="assistant-avatar"><i class="ph ph-lock-key"></i></span>
       <p class="eyebrow">Acceso protegido</p>
@@ -69,7 +71,7 @@
       <p>Inicia sesión con el correo autorizado para gestionar el catálogo.</p>
       <form class="admin-form" id="auth-form">
         <div class="form-group"><label for="auth-email">Correo</label><input class="text-input" id="auth-email" type="email" placeholder="tu-correo@ejemplo.com" required></div>
-        <div class="form-group"><label for="auth-password">Contraseña</label><input class="text-input" id="auth-password" type="password" minlength="8" required></div>
+        <div class="form-group"><label for="auth-password">Contraseña</label><div class="password-field"><input class="text-input" id="auth-password" type="password" autocomplete="current-password" minlength="8" required><button type="button" class="password-toggle" aria-label="Mostrar contraseña" aria-pressed="false"><i class="ph ph-eye" aria-hidden="true"></i></button></div></div>
         <p class="form-error" id="auth-error" role="alert"></p>
         <button class="button button-primary" type="submit">Iniciar sesión</button>
         <button class="auth-link" id="register-admin" type="button">Crear acceso por primera vez</button>

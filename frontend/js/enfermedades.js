@@ -3,6 +3,8 @@ const search = document.querySelector("#disease-search");
 const category = document.querySelector("#category-filter");
 const count = document.querySelector("#result-count");
 const empty = document.querySelector("#empty-state");
+const sort = document.querySelector("#disease-sort");
+const chips = document.querySelector("#category-chips");
 const modal = document.querySelector("#disease-modal");
 const modalContent = document.querySelector("#modal-content");
 let diseases = [];
@@ -51,9 +53,12 @@ function render() {
     return matchesTerm && (!selectedCategory || disease.categoria === selectedCategory);
   });
 
+  filtered.sort((a, b) => a.nombre.localeCompare(b.nombre, "es") * (sort.value === "desc" ? -1 : 1));
   grid.innerHTML = filtered.map(window.createDiseaseCard).join("");
+  chips.querySelectorAll("button").forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.category === selectedCategory)));
   count.textContent = `${filtered.length} ${filtered.length === 1 ? "resultado" : "resultados"}`;
   empty.style.display = filtered.length ? "none" : "block";
+  empty.querySelector("h2").textContent = diseases.length ? "No encontramos coincidencias" : "El catálogo todavía no tiene fichas";
   grid.querySelectorAll("[data-disease-id]").forEach((button) => button.addEventListener("click", () => openDisease(button.dataset.diseaseId)));
 }
 
@@ -62,10 +67,18 @@ modal.addEventListener("click", (event) => { if (event.target === modal) closeMo
 document.addEventListener("keydown", (event) => { if (event.key === "Escape" && modal.classList.contains("open")) closeModal(); });
 search.addEventListener("input", render);
 category.addEventListener("change", render);
+sort.addEventListener("change", render);
+chips.addEventListener("click", (event) => {
+  const button = event.target.closest("[data-category]");
+  if (!button) return;
+  category.value = button.dataset.category;
+  render();
+});
 
 window.loadDiseases()
   .then((data) => {
     diseases = data;
+    chips.innerHTML = ["", ...new Set(diseases.map((item) => item.categoria))].map((name) => `<button type="button" class="category-chip" data-category="${window.escapeHTML(name)}" aria-pressed="false">${window.escapeHTML(name || "Todas")}</button>`).join("");
     [...new Set(diseases.map((item) => item.categoria))].sort().forEach((item) => category.insertAdjacentHTML("beforeend", `<option value="${window.escapeHTML(item)}">${window.escapeHTML(item)}</option>`));
     const urlSymptoms = new URLSearchParams(window.location.search).get("symptoms");
     if (urlSymptoms) search.value = urlSymptoms;

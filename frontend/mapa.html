@@ -8,6 +8,7 @@
   <link rel="icon" href="assets/medinfo-logo.png" type="image/png">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/reference.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css">
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="" defer></script>
   <script src="js/common.js" defer></script>
@@ -36,6 +37,7 @@
         <div class="field-wrap"><i class="ph ph-funnel"></i><label class="sr-only" for="map-disease-filter">Filtrar por enfermedad</label><select class="select-input" id="map-disease-filter"><option value="">Todas las enfermedades</option></select></div>
         <div class="map-legend"><span><i class="legend-dot low"></i>Pocas referencias</span><span><i class="legend-dot high"></i>Más referencias</span></div>
       </div>
+      <div class="province-tools"><label for="province-search">Buscar provincia<input id="province-search" class="search-input" type="search" placeholder="Ejemplo: Guayas" list="province-names"><datalist id="province-names"></datalist></label><div class="view-switch" aria-label="Vista de provincias"><button type="button" id="show-map" aria-pressed="true">Mapa</button><button type="button" id="show-list" aria-pressed="false">Lista</button></div></div>
       <div class="map-layout">
         <div class="ecuador-map" id="ecuador-map" aria-label="Mapa interactivo de las provincias del Ecuador"><div class="map-loading"><i class="ph ph-map-trifold"></i><span>Preparando el mapa...</span></div></div>
         <aside class="province-panel" id="province-panel">

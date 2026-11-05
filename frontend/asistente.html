@@ -7,6 +7,7 @@
   <title>ALBA | MedInfo Ecuador</title>
   <link rel="icon" href="assets/medinfo-logo.png" type="image/png">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/reference.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css">
   <script src="js/common.js" defer></script>
   <script src="js/asistente.js" defer></script>
@@ -30,7 +31,7 @@
           <button class="clear-chat" id="clear-chat" type="button" aria-label="Iniciar una conversación nueva"><i class="ph ph-note-pencil" aria-hidden="true"></i><span>Nueva conversación</span></button>
         </header>
         <div class="chat-messages" id="chat-messages" role="log" aria-label="Conversación con ALBA" aria-live="polite" aria-relevant="additions" tabindex="0">
-          <div class="chat-empty" aria-hidden="true"><span class="assistant-avatar"><i class="ph ph-sparkle" aria-hidden="true"></i></span><h2>¿En qué puedo ayudarte?</h2></div>
+          <div class="chat-empty"><span class="assistant-avatar"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i></span><h2>Hola, ¿en qué puedo ayudarte?</h2><p>Cuéntame cómo te sientes o explora información de salud.</p><div class="welcome-options" id="quick-prompts"><button type="button" data-prompt="Quiero consultar un síntoma. ¿Qué información necesitas?"><i class="ph ph-stethoscope" aria-hidden="true"></i><span><strong>Consultar un síntoma</strong><small>Orientación educativa para tu consulta.</small></span></button><button type="button" data-prompt="Quiero conocer una enfermedad. Pregúntame cuál."><i class="ph ph-book-open" aria-hidden="true"></i><span><strong>Conocer una enfermedad</strong><small>Comprende la información de salud.</small></span></button><button type="button" data-prompt="¿Qué medidas generales de prevención puedo seguir?"><i class="ph ph-shield-check" aria-hidden="true"></i><span><strong>Medidas de prevención</strong><small>Acciones para cuidar tu bienestar.</small></span></button><button type="button" data-prompt="¿Cómo puedo organizar mis síntomas para una consulta médica?"><i class="ph ph-calendar" aria-hidden="true"></i><span><strong>Preparar mi consulta</strong><small>Organiza lo que deseas preguntar.</small></span></button></div></div>
         </div>
         <form class="chat-form" id="chat-form">
           <input id="age-range" type="hidden" value="no-indicar">
@@ -38,6 +39,7 @@
           <p class="chat-disclaimer">Información educativa; no sustituye una consulta médica. Ante una emergencia, llama al 911.</p>
         </form>
       </section>
+      <aside class="alba-guide"><h2>Antes de comenzar</h2><section><i class="ph ph-notepad" aria-hidden="true"></i><div><h3>Describe lo que sientes</h3><p>Cuéntame tus síntomas de forma clara y con los detalles que consideres relevantes.</p></div></section><section><i class="ph ph-calendar" aria-hidden="true"></i><div><h3>Indica desde cuándo</h3><p>Menciona cuándo empezaron tus síntomas y si han cambiado.</p></div></section><section><i class="ph ph-lock" aria-hidden="true"></i><div><h3>Evita compartir datos personales</h3><p>No incluyas tu cédula, dirección, teléfono u otros datos sensibles.</p></div></section><div class="emergency-note"><strong>¿Es una emergencia?</strong><p>Si necesitas atención inmediata, <a href="tel:911">llama al ECU 911</a>.</p></div><p class="muted">Información educativa. ALBA no ofrece diagnósticos.</p></aside>
     </div>
   </main>
 </body>

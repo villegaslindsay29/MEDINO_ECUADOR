@@ -7,6 +7,7 @@
   <title>Enfermedades | MedInfo Ecuador</title>
   <link rel="icon" href="assets/medinfo-logo.png" type="image/png">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/reference.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css">
   <script src="js/common.js" defer></script>
   <script src="js/enfermedades.js" defer></script>
@@ -34,6 +35,7 @@
         <div class="filter-field"><label for="disease-search">Buscar enfermedad o síntoma</label><div class="field-wrap"><i class="ph ph-magnifying-glass" aria-hidden="true"></i><input class="search-input" id="disease-search" type="search" placeholder="Ejemplo: tos, fiebre o dengue"></div></div>
         <div class="filter-field"><label for="category-filter">Categoría</label><select class="select-input" id="category-filter"><option value="">Todas las categorías</option></select></div>
       </div>
+      <div class="container catalog-tools"><div id="category-chips" class="category-chips" aria-label="Categorías del catálogo"></div><label class="sort-control" for="disease-sort">Ordenar<select id="disease-sort" class="select-input"><option value="asc">Nombre: A–Z</option><option value="desc">Nombre: Z–A</option></select></label></div>
     </section>
 
     <section class="section-tight">

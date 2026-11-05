@@ -1,5 +1,13 @@
 const menuButton = document.querySelector("[data-menu-toggle]");
 const navLinks = document.querySelector("[data-nav-links]");
+document.querySelector(".password-toggle")?.addEventListener("click", (event) => {
+  const button = event.currentTarget;
+  const input = document.querySelector("#auth-password");
+  const visible = input.type === "password";
+  input.type = visible ? "text" : "password";
+  button.setAttribute("aria-pressed", String(visible));
+  button.setAttribute("aria-label", visible ? "Ocultar contraseña" : "Mostrar contraseña");
+});
 document.querySelectorAll(".nav-link.active").forEach((link) => link.setAttribute("aria-current", "page"));
 
 if (menuButton && navLinks) {
@@ -99,8 +107,19 @@ window.normalizeDisease = (disease) => ({
   publicada: disease.publicada ?? true,
 });
 
+window.diseasePhoto = (disease) => {
+  const name = disease.nombre.toLowerCase();
+  if (name.includes("alopecia")) return "alopecia";
+  if (name.includes("asma") && name.includes("infantil")) return "asma-infantil";
+  if (name.includes("asma")) return "asma";
+  if (name.includes("dermatitis")) return "dermatitis";
+  if (name.includes("gastritis")) return "gastritis";
+  if (name.includes("rinitis")) return "rinitis";
+  return "consulta";
+};
 window.createDiseaseCard = (disease) => `
   <article class="disease-card" data-color="${disease.color}">
+    <img class="disease-photo" src="assets/reference/${window.diseasePhoto(disease)}.webp" alt="" width="400" height="140" loading="lazy">
     <div class="card-meta">
       <span>${window.escapeHTML(disease.categoria)}</span>
       <span>${window.escapeHTML(disease.zona)}</span>

@@ -23,7 +23,7 @@ function setBusy(busy) {
 
 function bindInitialPrompts() {
   quickPrompts = document.querySelector("#quick-prompts");
-  quickPrompts?.querySelectorAll("button").forEach((button) => button.addEventListener("click", () => sendMessage(button.textContent)));
+  quickPrompts?.querySelectorAll("button").forEach((button) => button.addEventListener("click", () => sendMessage(button.dataset.prompt || button.textContent)));
 }
 
 const emergencyPattern = /(no puedo respirar|dificultad para respirar|me desmay|inconsciente|convulsi|sangrado (fuerte|abundante)|dolor (fuerte|intenso) (en el pecho|de pecho)|debilidad.*lado|labios azules)/i;
