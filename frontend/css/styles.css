@@ -885,3 +885,55 @@ body { text-rendering: optimizeLegibility; }
 .galapagos-inset, .leaflet-control-zoom { border-color: rgba(18, 51, 71, .18) !important; box-shadow: 0 14px 34px rgba(18, 51, 71, .14) !important; }
 .button-primary { box-shadow: 0 10px 24px -14px rgba(0, 82, 124, .55); }
 .button-primary:hover { box-shadow: 0 16px 32px -16px rgba(0, 82, 124, .6); }
+
+/* Acentos de la paleta solicitada: verde salud y celeste. */
+.feature-card.tinted { background: #d5f2e5; border-top: 5px solid #2ead74; }
+.feature-card.tinted i { color: #167a50; }
+.visual-stamp { background: #2ead74; color: #123347; }
+.trust-item i, .map-intro-label i { color: #2ead74; }
+.map-intro-visual { border-bottom: 5px solid #00b4d8; }
+.prototype-badge, .ai-origin { color: #07527c; background: #d5f2e5; }
+.chat-preview::after { border-color: #00b4d8; }
+.map-caption { border-left-color: #00b4d8; }
+.disease-card[data-color="green"] { --card-color: #2ead74; }
+.disease-color[data-color="green"] { background: #2ead74; }
+.status::before { background: #2ead74; }
+
+/* Equilibrio cromático: azul para navegación, verde para acciones y bienestar. */
+.hero { background: #f2faf9; }
+.hero h1 span { color: #167a50; }
+.hero-photo { box-shadow: 18px 18px 0 #d5f2e5, var(--shadow); }
+.hero-actions .button-primary, .map-intro .button-primary { color: #123347; background: #2ead74; }
+.hero-actions .button-primary:hover, .map-intro .button-primary:hover { color: #fff; background: #167a50; }
+.trust-strip { background: #fff; border-bottom: 3px solid #d5f2e5; }
+.trust-item:nth-child(3) i { color: #0077b6; }
+.trust-item:nth-child(4) i { color: #0086a1; }
+.feature-main { background: #145c4d; }
+.feature-main p { color: #e3f5ef; }
+.feature-main > i { color: #8ee0ba; }
+.feature-card:not(.tinted) { background: #e9f8fb; border-color: #cceaf0; }
+.feature-card:not(.tinted) i { color: #0086a1; }
+.disease-preview { background: #f1faf6; }
+.disease-card { border-color: #d6eae3; }
+.disease-card[data-color="coral"] { --card-color: #00b4d8; }
+.disease-card[data-color="amber"] { --card-color: #58ba99; }
+.card-meta span:first-child { background: #eaf7f1; }
+.map-intro { background: #fff; }
+.map-intro-visual { background: #e4f6f5; }
+.orientation { color: var(--ink); background: #e5f5ee; }
+.orientation .section-copy { color: var(--ink-soft); }
+.orientation .eyebrow { color: #167a50; }
+.orientation .eyebrow::before { background: #2ead74; }
+.orientation .button-secondary { color: var(--ink); border-color: #a9d5c4; background: #fff; }
+.orientation .button-secondary:hover { background: #f2faf6; }
+.orientation .chat-preview { background: #f8fcfb; box-shadow: 0 24px 60px rgba(20, 92, 77, .14); }
+.site-footer { background: #123f50; }
+.source-item:nth-child(2) .source-number, .source-item:nth-child(2) i { color: #167a50; }
+.source-item:nth-child(3) .source-number, .source-item:nth-child(3) i { color: #0086a1; }
+.page-hero, .map-hero, .admin-hero { background: #f1faf7; }
+.admin-stats .stat:nth-child(2) { background: #eaf8f0; border-color: #c9e9d8; }
+.admin-stats .stat:nth-child(3) { background: #eaf8fb; border-color: #cceaf0; }
+.assistant-avatar, .message-avatar { color: #123347; background: #2ead74; }
+.chat-empty .assistant-avatar { background: #2ead74; }
+.assistant-stage .send-button { color: #123347; background: #2ead74; }
+.assistant-stage .send-button:hover, .assistant-stage .composer:focus-within .send-button { color: #fff; background: #167a50; }
