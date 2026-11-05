@@ -7,7 +7,7 @@
   <title>ALBA | MedInfo Ecuador</title>
   <link rel="icon" href="assets/medinfo-logo.png" type="image/png">
   <link rel="stylesheet" href="css/styles.css">
-  <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css">
   <script src="js/common.js" defer></script>
   <script src="js/asistente.js" defer></script>
 </head>
@@ -26,7 +26,7 @@
       <section class="chat-shell" aria-label="Conversación con el asistente">
         <header class="chat-header">
           <h1>ALBA</h1>
-          <span class="sr-only" id="assistant-status" aria-live="polite">Disponible</span>
+          <span class="sr-only" id="assistant-status" aria-live="polite"></span>
           <button class="clear-chat" id="clear-chat" type="button" aria-label="Iniciar una conversación nueva"><i class="ph ph-note-pencil" aria-hidden="true"></i><span>Nueva conversación</span></button>
         </header>
         <div class="chat-messages" id="chat-messages" role="log" aria-label="Conversación con ALBA" aria-live="polite" aria-relevant="additions" tabindex="0">
@@ -35,6 +35,7 @@
         <form class="chat-form" id="chat-form">
           <input id="age-range" type="hidden" value="no-indicar">
           <div class="composer"><label class="sr-only" for="message-input">Escribe tu consulta</label><textarea class="text-area" id="message-input" maxlength="1000" rows="1" placeholder="Escribe un mensaje para ALBA" required></textarea><button class="send-button" id="send-button" type="submit" aria-label="Enviar mensaje"><i class="ph ph-arrow-up" aria-hidden="true"></i></button></div>
+          <p class="chat-disclaimer">Información educativa; no sustituye una consulta médica. Ante una emergencia, llama al 911.</p>
         </form>
       </section>
     </div>

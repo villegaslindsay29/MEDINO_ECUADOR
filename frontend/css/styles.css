@@ -984,3 +984,100 @@ body { text-rendering: optimizeLegibility; }
   .admin-stats .stat { padding: 18px 20px; }
   .stat > i { width: 48px; height: 48px; font-size: 25px; }
 }
+
+/* Sistema compartido: mantiene la estructura y los controles existentes. */
+:root {
+  --medical-blue: #0077b6;
+  --health-green: #2ead74;
+  --medical-cyan: #00b4d8;
+  --surface: #fff;
+  --paper: #f7fbfd;
+  --ink: #153a56;
+  --ink-soft: #465f6d;
+  --line: #d2e5ed;
+  --surface-soft: #edf7fb;
+}
+body { font-size: 16px; line-height: 1.65; }
+h1, h2, h3 { font-family: "Montserrat", sans-serif; letter-spacing: -.035em; line-height: 1.16; }
+.admin-hero h1 { font-family: "Merriweather", Georgia, serif; }
+.container { width: min(1240px, calc(100% - 48px)); }
+.section { padding-block: 80px; }
+.section-tight { padding-block: 48px 64px; }
+.section-title { font-size: clamp(2rem, 3.5vw, 3.2rem); line-height: 1.12; }
+.section-copy, .hero-copy { line-height: 1.7; }
+.site-header { background: rgba(255, 255, 255, .97); }
+.nav { min-height: 72px; }
+.nav-link { font-weight: 500; }
+.nav-link.cta, .button-primary { color: #fff; background: var(--medical-blue); }
+.nav-link.cta:hover, .button-primary:hover { color: #fff; background: #07527c; }
+.button, .search-input, .select-input, .text-input { min-height: 48px; }
+.button { white-space: normal; line-height: 1.25; text-align: center; }
+.button-secondary { color: #07527c; }
+.hero { min-height: 0; padding: 56px 0 64px; background: #f2f9fc; }
+.hero-grid { gap: 56px; }
+.hero h1 { font-size: clamp(2.6rem, 4.4vw, 4.3rem); line-height: 1.08; }
+.hero h1 span { color: var(--medical-blue); }
+.hero-visual { min-height: 0; }
+.hero-photo { height: clamp(340px, 34vw, 440px); border-radius: 18px; box-shadow: var(--shadow); }
+.visual-stamp { top: 20px; left: 20px; width: 80px; height: 80px; transform: none; }
+.visual-note { right: 16px; bottom: 16px; width: min(235px, calc(100% - 32px)); }
+.hero-actions .button-primary, .map-intro .button-primary { color: #fff; background: var(--medical-blue); }
+.hero-actions .button-primary:hover, .map-intro .button-primary:hover { color: #fff; background: #07527c; }
+.feature-main { min-height: 0; padding: 40px; }
+.feature-main h3 { margin-top: 48px; font-size: clamp(1.8rem, 3vw, 2.8rem); line-height: 1.15; }
+.page-hero, .map-hero, .admin-hero { padding-top: 48px; }
+.page-hero { padding-bottom: 40px; }
+.page-hero h1, .map-hero h1 { font-size: clamp(2.4rem, 4.5vw, 4rem); line-height: 1.12; }
+.admin-hero h1 { font-size: clamp(2.3rem, 4vw, 3.7rem); line-height: 1.18; }
+.search-panel { position: static; background: #fff; }
+.search-row { align-items: end; }
+.filter-field { display: grid; min-width: 0; gap: 8px; }
+.filter-field label { color: var(--ink); font-size: .9rem; font-weight: 700; }
+.disease-grid { margin-top: 24px; }
+.disease-card { min-height: 290px; }
+.disease-card h3 { margin-top: 24px; font-size: 1.35rem; }
+.disease-card p { font-size: 1rem; }
+.disease-specialist { margin-top: auto; }
+.card-link { margin-top: 8px; }
+.modal { padding: 32px; }
+.modal h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); line-height: 1.18; }
+.modal-summary, .info-list, .info-block p { line-height: 1.7; }
+.warning-block .info-list { color: #68271f; }
+.map-hero { padding-bottom: 40px; }
+.map-workspace { padding-top: 24px; }
+.admin-row { gap: 16px; }
+.auth-card h2 { font-size: 1.8rem; line-height: 1.2; }
+.assistant-page { background: #f7fbfd; }
+.assistant-stage .chat-shell { border-inline: 1px solid var(--line); }
+.assistant-stage .chat-header h1 { color: #07527c; font-size: 1.2rem; }
+.assistant-stage .chat-messages { background: #fff; }
+.chat-empty { padding: 24px; }
+.message.user .message-bubble { background: #e7f4fa; }
+.assistant-stage .send-button { color: #fff; background: var(--medical-blue); }
+.assistant-stage .send-button:hover, .assistant-stage .composer:focus-within .send-button { color: #fff; background: #07527c; }
+.assistant-stage .chat-form { padding-bottom: max(20px, env(safe-area-inset-bottom)); }
+.chat-disclaimer { text-align: center; }
+:focus-visible { outline: 3px solid #0077b6; outline-offset: 3px; }
+.button:focus-visible, .nav-link:focus-visible, .card-link:focus-visible, .icon-button:focus-visible,
+.quick-prompt:focus-visible, .suggestion-card:focus-visible, .province-disease:focus-visible,
+.source-item:focus-visible, .modal-close:focus-visible, .menu-toggle:focus-visible, .clear-chat:focus-visible { outline: 3px solid #0077b6; outline-offset: 3px; }
+@media (max-width: 900px) {
+  .hero-grid { gap: 32px; }
+  .disease-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .container { width: calc(100% - 32px); }
+  .section { padding-block: 56px; }
+  .hero { padding: 40px 0 48px; }
+  .hero h1 { font-size: clamp(2.4rem, 10vw, 3.2rem); }
+  .hero-photo { height: 320px; }
+  .visual-note { right: 12px; bottom: 12px; }
+  .disease-grid { grid-template-columns: 1fr; }
+  .disease-card { min-height: 0; }
+  .page-hero, .map-hero, .admin-hero { padding-top: 40px; }
+  .page-hero h1, .map-hero h1 { font-size: clamp(2.3rem, 9vw, 3rem); }
+  .modal { padding: 24px 20px; }
+  .assistant-stage { width: 100%; }
+  .assistant-stage .chat-shell { height: calc(100dvh - 74px); min-height: 420px; border: 0; }
+  .assistant-stage .chat-form { padding-bottom: max(14px, env(safe-area-inset-bottom)); }
+}

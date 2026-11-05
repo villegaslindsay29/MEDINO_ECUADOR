@@ -7,7 +7,7 @@
   <title>Enfermedades | MedInfo Ecuador</title>
   <link rel="icon" href="assets/medinfo-logo.png" type="image/png">
   <link rel="stylesheet" href="css/styles.css">
-  <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css">
   <script src="js/common.js" defer></script>
   <script src="js/enfermedades.js" defer></script>
 </head>
@@ -31,9 +31,8 @@
 
     <section class="search-panel" aria-label="Filtros del catálogo">
       <div class="container search-row">
-        <div class="field-wrap"><i class="ph ph-magnifying-glass" aria-hidden="true"></i><label class="sr-only" for="disease-search">Buscar enfermedad o síntoma</label><input class="search-input" id="disease-search" type="search" placeholder="Busca por enfermedad o síntomas (ej: tos, fiebre, caída de cabello)..."></div>
-        <label class="sr-only" for="category-filter">Filtrar por categoría</label>
-        <select class="select-input" id="category-filter"><option value="">Todas las categorías</option></select>
+        <div class="filter-field"><label for="disease-search">Buscar enfermedad o síntoma</label><div class="field-wrap"><i class="ph ph-magnifying-glass" aria-hidden="true"></i><input class="search-input" id="disease-search" type="search" placeholder="Ejemplo: tos, fiebre o dengue"></div></div>
+        <div class="filter-field"><label for="category-filter">Categoría</label><select class="select-input" id="category-filter"><option value="">Todas las categorías</option></select></div>
       </div>
     </section>
 

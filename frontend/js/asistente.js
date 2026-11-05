@@ -18,7 +18,7 @@ function setBusy(busy) {
   ageRange.disabled = busy;
   messages.setAttribute("aria-busy", String(busy));
   messages.querySelectorAll("button").forEach((button) => { button.disabled = busy; });
-  statusText.textContent = busy ? "ALBA está preparando tu respuesta" : "Disponible";
+  statusText.textContent = busy ? "ALBA está preparando tu respuesta" : "";
 }
 
 function bindInitialPrompts() {

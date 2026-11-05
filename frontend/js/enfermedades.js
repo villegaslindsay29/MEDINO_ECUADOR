@@ -75,5 +75,7 @@ window.loadDiseases()
   })
   .catch(() => {
     count.textContent = "No fue posible cargar el catálogo.";
+    empty.querySelector("h2").textContent = "No pudimos cargar el catálogo";
+    empty.querySelector("p").textContent = "Comprueba tu conexión e inténtalo de nuevo más tarde.";
     empty.style.display = "block";
   });

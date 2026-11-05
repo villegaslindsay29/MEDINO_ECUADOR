@@ -95,7 +95,7 @@ window.normalizeDisease = (disease) => ({
     ? disease.fuentes
     : [{ titulo: disease.nombre, organismo: disease.fuente || "Fuente por verificar", url: "https://www.salud.gob.ec/" }],
   origen: disease.origen || "catalogo",
-  estado_revision: disease.estado_revision || "verificada",
+  estado_revision: disease.estado_revision || "desconocida",
   publicada: disease.publicada ?? true,
 });
 
@@ -108,7 +108,7 @@ window.createDiseaseCard = (disease) => `
     <h3>${window.escapeHTML(disease.nombre)}</h3>
     <p>${window.escapeHTML(disease.resumen)}</p>
     <span class="disease-specialist"><i class="ph ph-stethoscope" aria-hidden="true"></i> ${window.escapeHTML(disease.especialista)}</span>
-    ${disease.origen === "ALBA" ? `<span class="ai-origin"><i class="ph ph-sparkle"></i> Generada por ALBA · ${disease.estado_revision === "pendiente" ? "Pendiente de revisión" : "Verificada"}</span>` : ""}
+    ${disease.origen === "ALBA" ? `<span class="ai-origin"><i class="ph ph-sparkle" aria-hidden="true"></i> Generada por ALBA${disease.estado_revision === "pendiente" ? " · Pendiente de revisión" : disease.estado_revision === "verificada" ? " · Verificada" : ""}</span>` : ""}
     <button class="card-link" type="button" data-disease-id="${window.escapeHTML(disease.id)}">
       Ver información <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
     </button>
