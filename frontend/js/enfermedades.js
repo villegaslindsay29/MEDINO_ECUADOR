@@ -24,7 +24,6 @@ function catalogCategory(disease) {
 
 function compactCard(disease) {
   return `<article class="disease-card compact-disease-card">
-    <div class="compact-photo"><img src="assets/reference/${window.diseasePhoto(disease)}.webp" alt="" width="400" height="140" loading="lazy"></div>
     <div class="compact-content"><h3>${window.escapeHTML(disease.nombre)}</h3><p>Síntomas, prevención y señales de alerta.</p>
     <div class="compact-actions"><button type="button" data-section="sintomas" data-disease-id="${window.escapeHTML(disease.id)}" aria-label="Síntomas de ${window.escapeHTML(disease.nombre)}"><i class="ph ph-clipboard-text" aria-hidden="true"></i> Síntomas</button><span class="action-divider" aria-hidden="true"></span><button type="button" data-section="prevencion" data-disease-id="${window.escapeHTML(disease.id)}" aria-label="Prevención de ${window.escapeHTML(disease.nombre)}"><i class="ph ph-shield-check" aria-hidden="true"></i> Prevención</button><button type="button" class="compact-details" data-disease-id="${window.escapeHTML(disease.id)}">Ver información <i class="ph ph-arrow-right" aria-hidden="true"></i></button></div></div>
   </article>`;

@@ -65,15 +65,11 @@ body { background: #fbfefe; }
 .disease-card::before { height: 4px; }
 .disease-carousel { grid-auto-columns: calc((100% - 48px) / 3); }
 .category-collections { gap: 32px; }
-.disease-carousel .compact-disease-card { min-height: 0; padding: 0; border-radius: 10px; display: flex; flex-direction: column; border: 1px solid #d4e4e9; transition: border-color 180ms ease, box-shadow 180ms ease; }
+.disease-carousel .compact-disease-card { min-height: 156px; padding: 0; border-radius: 12px; display: flex; flex-direction: column; border: 1px solid #d4e4e9; transition: border-color 180ms ease, box-shadow 180ms ease; }
 .disease-carousel .compact-disease-card:hover, .disease-carousel .compact-disease-card:focus-within { transform: none; border-color: #00a1ce; box-shadow: 0 0 0 1px #00a1ce, 0 6px 18px rgba(0,119,182,.1); }
-.compact-photo { position: relative; }
-.compact-photo img { width: 100%; height: 132px; object-fit: cover; }
-.compact-photo span { position: absolute; top: 10px; left: 12px; display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 20px; background: #e1f6ee; color: #145b4d; font-size: .7rem; line-height: 1.4; }
-.compact-photo span i { font-size: 14px; }
-.compact-content { padding: 16px 18px 10px; display: flex; flex-direction: column; flex: 1; background: #fff; }
+.compact-content { padding: 22px 20px 12px; display: flex; flex-direction: column; flex: 1; background: #fff; }
 .disease-carousel .compact-disease-card h3 { margin: 0 0 8px; font-family: "Lato", sans-serif; font-size: 1.25rem; font-weight: 700; letter-spacing: -.02em; line-height: 1.2; }
-.compact-content > p { font-size: .95rem; margin: 0 0 12px; line-height: 1.4; }
+.compact-content > p { font-size: .95rem; margin: 0 0 18px; line-height: 1.5; }
 .compact-actions { display: flex; align-items: center; flex-wrap: nowrap; gap: 8px; margin-top: auto; }
 .compact-actions button { display: inline-flex; align-items: center; justify-content: center; gap: 4px; border: 0; border-radius: 6px; background: transparent; color: #0077b6; padding: 6px 0; min-height: 44px; font-size: .8rem; white-space: nowrap; }
 .compact-actions button i { font-size: 16px; }

@@ -1,0 +1,48 @@
+/* Solo el listado editorial: no modifica acceso, formularios ni autenticación. */
+.admin-panel { padding: 0; overflow: hidden; border-color: #d4e5ed; box-shadow: 0 8px 28px rgba(16,67,98,.06); }
+.admin-panel .panel-head { align-items: start; gap: 24px; padding: 28px; border-bottom: 1px solid #dceaf0; }
+.admin-panel .panel-head h2 { font-family: "Montserrat", sans-serif; font-size: 1.35rem; line-height: 1.3; letter-spacing: -.025em; margin-bottom: 8px; }
+.admin-panel .panel-head .muted { display: block; max-width: 65ch; font-size: .9rem; line-height: 1.6; }
+.admin-panel .panel-actions { flex: 0 0 auto; }
+.admin-columns, .admin-row { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, .85fr) minmax(0, .65fr) 144px; align-items: center; gap: 24px; }
+.admin-columns { padding: 14px 28px; color: #486375; background: #f3f8fb; border-bottom: 1px solid #dceaf0; font-size: .8rem; font-weight: 700; letter-spacing: .02em; }
+.admin-columns > :last-child { text-align: right; }
+.admin-row { padding: 24px 28px; border-bottom-color: #e4eef3; transition: background-color 160ms ease; }
+.admin-row:nth-child(even) { background: #fcfdfe; }
+.admin-row:hover, .admin-row:focus-within { background: #f8fcfe; }
+.admin-item-heading { display: flex; align-items: center; gap: 12px; }
+.admin-item-heading > div { min-width: 0; }
+.admin-item-heading strong { font-size: 1.05rem; line-height: 1.4; color: #123b59; }
+.admin-file-icon { display: grid; place-items: center; flex-shrink: 0; width: 38px; height: 42px; color: #0077b6; background: #e9f5fb; border-radius: 10px; font-size: 22px; }
+.admin-specialty { display: block; margin-top: 4px; color: #0077b6; font-size: .85rem; }
+.admin-summary { margin: 8px 0 0; color: #506574; font-size: .9rem; line-height: 1.6; }
+.admin-category, .admin-zone { font-size: .9rem; line-height: 1.5; overflow-wrap: anywhere; }
+.admin-category { color: #174864; }
+.admin-category > span { display: inline-block; padding: 6px 10px; border: 1px solid #deebf2; border-radius: 8px; background: #f1f7fb; font-size: .85rem; }
+.admin-zone { color: #526875; }
+.admin-state-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.admin-review, .admin-publication { display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px; border-radius: 6px; background: #fff4df; color: #795516; font-size: .78rem; }
+.admin-publication.is-published { color: #176347; background: #e8f6ef; }
+.admin-publication.is-hidden { color: #53616d; background: #eef1f4; }
+.admin-panel .row-actions { justify-content: end; gap: 6px; }
+.admin-panel .icon-button { width: 44px; height: 44px; flex-shrink: 0; border-radius: 10px; color: #0077b6; font-size: 18px; }
+.admin-panel .icon-button.delete { color: #9a3b35; }
+.admin-panel .icon-button.approve { color: #167a50; }
+.admin-panel .icon-button:focus-visible { outline: 3px solid #0077b6; outline-offset: 3px; }
+@media (max-width: 1050px) {
+  .admin-panel .panel-head { flex-direction: column; }
+  .admin-columns, .admin-row { grid-template-columns: minmax(0, 1.6fr) minmax(0, .8fr) minmax(0, .6fr) 94px; gap: 16px; }
+  .admin-panel .row-actions { flex-wrap: wrap; }
+}
+@media (max-width: 640px) {
+  .admin-panel { background: transparent; border: 0; box-shadow: none; }
+  .admin-panel .panel-head { padding: 20px; background: #fff; border: 1px solid #d4e5ed; border-radius: 14px; margin-bottom: 16px; }
+  .admin-panel .panel-actions { flex-direction: row; flex-wrap: wrap; }
+  .admin-columns { display: none; }
+  .admin-list { gap: 16px; }
+  .admin-row { grid-template-columns: minmax(0, 1fr); gap: 14px; padding: 20px; border: 1px solid #d4e5ed; border-radius: 14px; background: #fff; }
+  .admin-row > div:first-child, .admin-row > span, .admin-row > .row-actions { grid-column: auto; grid-row: auto; }
+  .admin-row > span { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 12px; margin: 0; font-size: .88rem; }
+  .admin-row > span::before { content: attr(data-label); color: #697d89; }
+  .admin-panel .row-actions { justify-content: end; padding-top: 12px; border-top: 1px solid #e4eef3; }
+}

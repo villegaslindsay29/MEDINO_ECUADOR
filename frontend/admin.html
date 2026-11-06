@@ -8,6 +8,7 @@
   <link rel="icon" href="assets/medinfo-logo.png" type="image/png">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/reference.css">
+  <link rel="stylesheet" href="css/admin.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css">
   <script src="js/common.js" defer></script>
   <script src="js/admin.js" defer></script>
@@ -33,7 +34,8 @@
         </div>
         <section class="admin-panel">
           <header class="panel-head"><div><h2>Enfermedades registradas</h2><span class="muted">Las fichas pendientes de ALBA se muestran públicamente con un aviso hasta su revisión.</span></div><div class="panel-actions"><button class="button button-secondary button-small" id="logout" type="button"><i class="ph ph-sign-out"></i> Salir</button><button class="button button-primary button-small" id="new-content" type="button"><i class="ph ph-plus"></i> Nueva enfermedad</button></div></header>
-          <div class="admin-list" id="admin-list" aria-live="polite"></div>
+          <div class="admin-columns" aria-hidden="true"><span>Enfermedad</span><span>Categoría</span><span>Zona</span><span>Acciones</span></div>
+          <div class="admin-list" id="admin-list" role="list" aria-label="Enfermedades registradas" aria-live="polite"></div>
         </section>
       </div>
     </section>
