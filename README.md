@@ -10,6 +10,15 @@ Plataforma educativa de salud para Ecuador con catálogo centralizado, mapa inte
 - Inteligencia artificial: Google Gemini.
 - Datos geográficos: geoBoundaries, licencia CC0.
 
+## Estructura del proyecto
+
+- `frontend/`: única carpeta de la interfaz; aquí se editan HTML, CSS, JavaScript e imágenes.
+- `backend/src/`: código del servidor y de las APIs.
+- `backend/dist/`: servidor compilado, generado automáticamente por TypeScript.
+- `api/index.js` y `vercel.json`: entrada de la API y configuración de despliegue en Vercel, ambas en la raíz.
+
+La compilación del backend no copia ni genera otra carpeta de frontend. Tanto el servidor local como Vercel utilizan `frontend/` desde la raíz del proyecto. En Vercel, configura **Root Directory en la raíz**, no en `backend/`.
+
 ## Configuración
 
 1. Instala las dependencias del backend:
